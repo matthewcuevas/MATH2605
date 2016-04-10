@@ -19,6 +19,32 @@ public class Matrix {
     }
 
     /**
+     * Dynamic constructor that makes the matrix with the doubles passed in
+     * If (2, 2, new double[]{1, 2, 3, 4}) are passed, the result will be:
+     * 1  2
+     * 3  4
+     * @param rows the number of rows
+     * @param columns the number of columns
+     * @param nums a double array with the numbers
+     * @throws IllegalArgumentException if length of nums is not equal to m x n
+     */
+    public Matrix(int rows, int columns, double[] nums) {
+        if (nums.length != rows * columns) {
+            throw new IllegalArgumentException("Tried to make a " + rows + " by "
+                    + columns + " matrix with " + nums.length + " elements.");
+        }
+        this.rows = rows;
+        this.columns = columns;
+        int z = 0;
+        matrix = new double[rows][columns];
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < columns; x++) {
+                matrix[y][x] = nums[z++];
+            }
+        }
+    }
+
+    /**
      * Returns the number of rows in matrix (height)
      * @return number of rows
      */
