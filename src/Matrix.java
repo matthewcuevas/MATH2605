@@ -102,7 +102,7 @@ public class Matrix {
                     + " by " + m1.columns + " matrix by a " + m2.rows
                     + " by " + m2.columns + " matrix.");
         }
-        
+
         Matrix retur = new Matrix(m1.rows, m2.columns);
         for (int y = 0; y < m1.rows; y++) {
             for (int x = 0; x < m2.columns; x++) {
@@ -116,5 +116,19 @@ public class Matrix {
 
 
         return retur;
+    }
+
+
+
+    @Override
+    public String toString() {
+        String ret = "\n";
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < columns; x++) {
+                ret = ret + String.format("%2.4f", matrix[y][x]) + "\t";
+            }
+            ret = ret + "\n";
+        }
+        return ret + "\n";
     }
 }
