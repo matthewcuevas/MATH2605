@@ -1,7 +1,5 @@
 # MATH2605
 2605 Calc 3 Project
-# MATH2605
-2605 Calc 3 Project
 
 ## To Run
 #####On a Unix operating system
