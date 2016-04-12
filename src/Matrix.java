@@ -158,7 +158,27 @@ public class Matrix {
     }
 
     /**
+     * Finds the trace of a square matrix
+     * @return the sum of the diagonal matrix
+     * @throws IllegalArgumentException if the matrix is not square
+     */
+    public double trace() {
+        if (rows != columns) {
+            throw new IllegalArgumentException("Tried to find the trace of a" +
+                    " non-square matrix.");
+        }
+
+        double sum = 0;
+        for (int i = 0; i < rows; i++) {
+            sum += matrix[i][i];
+        }
+
+        return sum;
+    }
+
+    /**
      * Inverts the matrix
+     * Code written by SanFoundry
      */
     public void invert() {
         double a[][] = matrix;
