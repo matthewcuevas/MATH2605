@@ -1,9 +1,10 @@
 package com.math2605.src;
 
 /**
- * Created by matthew on 4/12/16.
+ * Methods for solving systems of equations and matrix equalities.
  */
-public class Utilities {
+public class SolvingUtilities {
+
     public static Vector triangularSolve(Matrix A, Vector b) {
         int n = (int) b.magnitude();
 
