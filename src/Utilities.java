@@ -11,7 +11,7 @@ public class Utilities {
         for (int i = 0; i < n; i++) {
             double rhs = b.get(i, 0);
             for (int j = 0; j < i; j++) {
-                rhs -= solution[j] * A.get(i,j);
+                rhs -= solution[i-1] * A.get(i,j);
             }
 
             solution[i] = rhs / A.get(i, i);
