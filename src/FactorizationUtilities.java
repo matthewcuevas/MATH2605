@@ -6,16 +6,44 @@ import java.util.ArrayList;
 public class FactorizationUtilities {
 
     /**
-     * LU Factorizes a given Matrix
+     * LU Factorize a given Matrix
      * @param A the Matrix to be factorized
-     * @return an array of Matrices where the first element is L,
+     * @return an array where the first element is L,
      * and the second element is U, and the third is the error
      */
     public static Object[] lu_fact(Matrix A) {
         Object[] LU = new Matrix[2];
         LU[0] = getL(A);
         LU[1] = getU(A);
+        //TODO: Find ||LU-A||
+
         return LU;
+    }
+
+    /**
+     * QR Factorize a given Matrix using the Householders method
+     * @param A the matrix to be factorized
+     * @return an array where the first element is Q,
+     * and the second element is R, and the third is the error
+     */
+    public static Object[] qr_fact_house(Matrix A) {
+        Object[] QR = new Matrix[2];
+        // TODO: QR Factorize A
+
+        return QR;
+    }
+
+    /**
+     * QR Factorize a given Matrix using the Givens method
+     * @param A the matrix to be factorized
+     * @return an array where the first element is Q,
+     * and the second element is R, and the third is the error
+     */
+    public static Object[] qr_fact_givens(Matrix A) {
+        Object[] QR = new Matrix[2];
+        // TODO: QR Factorize A
+
+        return QR;
     }
 
     /**
