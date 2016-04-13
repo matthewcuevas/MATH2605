@@ -75,8 +75,7 @@ public class SolvingUtilities {
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 
-        Matrix ATranspose = A.getCopy();
-        // Matrix ATranspose.transpose();
+        Matrix ATranspose = A.transpose();
 
         Vector y = (Vector) Matrix.multiply(ATranspose, b);
         return URTriangularSolve(R, y);
@@ -93,8 +92,7 @@ public class SolvingUtilities {
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 
-        Matrix ATranspose = A.getCopy();
-        // Matrix ATranspose.transpose();
+        Matrix ATranspose = A.transpose();
 
         Vector y = (Vector) Matrix.multiply(ATranspose, b);
         return URTriangularSolve(R, y);

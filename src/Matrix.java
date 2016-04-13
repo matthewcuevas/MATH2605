@@ -272,9 +272,7 @@ public class Matrix {
     }
 
     /**
-<<<<<<< HEAD
      * Tranposes this Matrix
-     *
      * @return A ^ T
      */
     public Matrix transpose() {
