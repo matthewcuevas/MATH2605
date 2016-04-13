@@ -4,10 +4,12 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("Test your methods here");
+        Matrix testMatrix = SolvingUtilities.readFile("data/" + args[0]);
+        System.out.println("Original:");
+        System.out.println(testMatrix);
 
-        Matrix testMatrix = SolvingUtilities.readFile("src/" + args[0]);
-        System.out.println("this is the beautiful matrix passed in");
+        testMatrix = Matrix.invert(testMatrix);
+        System.out.println("Inverted:");
         System.out.println(testMatrix);
 
 //        System.out.println("Now to test LU factorization");

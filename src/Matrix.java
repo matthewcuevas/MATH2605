@@ -170,8 +170,8 @@ public class Matrix {
      * Inverts the matrix
      * Code written by SanFoundry
      */
-    public void invert() {
-        double a[][] = matrix;
+    public static Matrix invert(Matrix A) {
+        double[][] a = A.matrix;
         int n = a.length;
         double x[][] = new double[n][n];
         double b[][] = new double[n][n];
@@ -180,52 +180,7 @@ public class Matrix {
             b[i][i] = 1;
 
         // Transform the matrix into an upper triangle
-        int o = index.length;
-        double c[] = new double[o];
-
-        // Initialize the index
-        for (int i = 0; i < o; ++i)
-            index[i] = i;
-
-        // Find the rescaling factors, one from each row
-        for (int i = 0; i < o; ++i) {
-            double c1 = 0;
-            for (int j = 0; j < o; ++j) {
-                double c0 = Math.abs(a[i][j]);
-                if (c0 > c1) c1 = c0;
-            }
-
-            c[i] = c1;
-        }
-
-        // Search the pivoting element from each column
-        int l = 0;
-        for (int j = 0; j < o - 1; ++j) {
-            double pi1 = 0;
-            for (int i = j; i < o; ++i) {
-                double pi0 = Math.abs(a[index[i]][j]);
-                pi0 /= c[index[i]];
-                if (pi0 > pi1) {
-                    pi1 = pi0;
-                    l = i;
-                }
-            }
-
-            // Interchange rows according to the pivoting order
-            int itmp = index[j];
-            index[j] = index[l];
-            index[l] = itmp;
-            for (int i = j + 1; i < o; ++i) {
-                double pj = a[index[i]][j] / a[index[j]][j];
-
-                // Record pivoting ratios below the diagonal
-                a[index[i]][j] = pj;
-
-                // Modify other elements accordingly
-                for (int m = j + 1; m < o; ++m)
-                    a[index[i]][m] -= pj * a[index[j]][m];
-            }
-        }
+        gaussian(a, index);
 
         // Update the matrix b[i][j] with the ratios stored
         for (int i=0; i<n-1; ++i)
@@ -247,18 +202,73 @@ public class Matrix {
             }
         }
 
-        matrix = a;
+        return new Matrix(x);
+    }
+
+    /**
+     * Helper method for finding the inverse of a Matrix
+     */
+    private static void gaussian(double a[][], int index[]) {
+        int n = index.length;
+        double c[] = new double[n];
+
+        // Initialize the index
+        for (int i=0; i<n; ++i)
+            index[i] = i;
+
+        // Find the rescaling factors, one from each row
+        for (int i=0; i<n; ++i) {
+            double c1 = 0;
+            for (int j=0; j<n; ++j) {
+                double c0 = Math.abs(a[i][j]);
+                if (c0 > c1) c1 = c0;
+            }
+
+            c[i] = c1;
+        }
+
+        // Search the pivoting element from each column
+        int k = 0;
+        for (int j=0; j<n-1; ++j) {
+            double pi1 = 0;
+            for (int i=j; i<n; ++i) {
+                double pi0 = Math.abs(a[index[i]][j]);
+                pi0 /= c[index[i]];
+                if (pi0 > pi1) {
+                    pi1 = pi0;
+                    k = i;
+                }
+            }
+
+            // Interchange rows according to the pivoting order
+            int itmp = index[j];
+            index[j] = index[k];
+            index[k] = itmp;
+            for (int i=j+1; i<n; ++i) {
+                double pj = a[index[i]][j]/a[index[j]][j];
+
+                // Record pivoting ratios below the diagonal
+                a[index[i]][j] = pj;
+
+                // Modify other elements accordingly
+                for (int l=j+1; l<n; ++l)
+                    a[index[i]][l] -= pj*a[index[j]][l];
+            }
+        }
     }
 
     /**
      * Negates each element in the Matrix
      */
-    public void negate() {
+    public Matrix negate() {
+        double a[][] = new double[rows][columns];
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++) {
-                matrix[i][j] = -matrix[i][j];
+                a[i][j] = -matrix[i][j];
             }
         }
+
+        return new Matrix(a);
     }
 
     /**

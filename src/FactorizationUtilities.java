@@ -104,8 +104,7 @@ public class FactorizationUtilities {
             }
         }
 
-        Matrix UInverse = U.getCopy();
-        UInverse.invert();
+        Matrix UInverse = Matrix.invert(U);
 
         Matrix L = Matrix.multiply(A, UInverse);
 
