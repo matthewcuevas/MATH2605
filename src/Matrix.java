@@ -50,6 +50,24 @@ public class Matrix {
     }
 
     /**
+     * Instantiates a Matrix based on a 2-D array of values
+     * @param matrix a 2-D array of values
+     */
+    public Matrix(double[][] matrix){
+        this.rows = matrix.length;
+        this.columns = matrix[0].length;
+        this.matrix = matrix;
+
+        int z = 0;
+        nums = new double[rows * columns];
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < columns; x++) {
+                nums[z++] = matrix[y][x];
+            }
+        }
+    }
+
+    /**
      * Returns the number of rows in matrix (height)
      * @return number of rows
      */
@@ -267,7 +285,7 @@ public class Matrix {
      * @return a copy of this MAtrix
      */
     public Matrix getCopy() {
-        return new Matrix(rows, columns, nums);
+        return new Matrix(matrix);
     }
 
     @Override
