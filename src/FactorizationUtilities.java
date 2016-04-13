@@ -1,5 +1,3 @@
-package com.math2605.src;
-
 /**
  * Methods for factorizing matrices.
  */

@@ -1,5 +1,3 @@
-package com.math2605.src;
-
 /**
  * Created by Anush on 4/10/2016.
  */
