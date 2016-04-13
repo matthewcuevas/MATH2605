@@ -1,3 +1,5 @@
+package com.math2605.src;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
