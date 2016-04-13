@@ -355,10 +355,17 @@ public class Matrix {
 
     /**
      * Creates a copy of this Matrix
-     * @return a copy of this MAtrix
+     * @return a copy of this Matrix
      */
     public Matrix getCopy() {
-        return new Matrix(matrix);
+        Matrix X = new Matrix(rows, columns);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                X.set(i, j, matrix[i][j]);
+            }
+        }
+
+        return X;
     }
 
     @Override
@@ -370,6 +377,6 @@ public class Matrix {
             }
             ret = ret + "\n";
         }
-        return ret + "\n";
+        return ret;
     }
 }

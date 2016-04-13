@@ -15,29 +15,16 @@ public class FactorUtil {
     public static Object[] lu_fact(Matrix A) {
         int n = A.getRows();
 
-        Matrix[] LList = new Matrix[n - 1];
         Matrix U = A.getCopy();
         for (int i = 0; i < n - 1; i++) {
-            LList[i] = new Matrix(n, n);
-            for (int index = 0; index < n; index++) {
-                LList[i].set(index, index, 1);
-            }
-
             for (int j = i + 1; j < n; j++) {
                 double factor = U.get(j, i) / U.get(i, i);
-                LList[i].set(j, i, -1.0 * factor);
                 for (int k = 0; k < n; k++) {
                     U.set(j, k, U.get(j, k) - factor * U.get(i, k));
                 }
             }
         }
-
-        Matrix L = LList[0];
-        for (int i = 1; i < n - 1; i++) {
-            L = Matrix.multiply(L, LList[i]);
-        }
-
-        L = Matrix.invert(L);
+        Matrix L = Matrix.multiply(A, Matrix.invert(U));
 
         Object[] LU = new Object[3];
         LU[0] = L;
