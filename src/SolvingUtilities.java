@@ -64,6 +64,42 @@ public class SolvingUtilities {
         return URTriangularSolve(U, y);
     }
 
+    /**
+     * Solve Ax = b using Householders QR Factorization
+     * @param A a Matrix
+     * @param b a Vector
+     * @return the solution to this equation
+     */
+    public static Vector solve_qr_house(Matrix A, Vector b) {
+        Object[] QR = FactorizationUtilities.qr_fact_house(A);
+        Matrix Q = (Matrix) QR[0];
+        Matrix R = (Matrix) QR[1];
+
+        Matrix ATranspose = A.getCopy();
+        // Matrix ATranspose.transpose();
+
+        Vector y = (Vector) Matrix.multiply(ATranspose, b);
+        return URTriangularSolve(R, y);
+    }
+
+    /**
+     * Solve Ax = b using Givens QR Factorization
+     * @param A a Matrix
+     * @param b a Vector
+     * @return the solution to this equation
+     */
+    public static Vector solve_factor_givens(Matrix A, Vector b) {
+        Object[] QR = FactorizationUtilities.qr_fact_givens(A);
+        Matrix Q = (Matrix) QR[0];
+        Matrix R = (Matrix) QR[1];
+
+        Matrix ATranspose = A.getCopy();
+        // Matrix ATranspose.transpose();
+
+        Vector y = (Vector) Matrix.multiply(ATranspose, b);
+        return URTriangularSolve(R, y);
+    }
+
 
     public static Matrix readFile(String filename) throws FileNotFoundException, IOException {
         BufferedReader in = null;

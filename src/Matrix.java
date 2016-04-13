@@ -167,24 +167,6 @@ public class Matrix {
     }
 
     /**
-     * Finds the trace of a square matrix
-     * @return the sum of the diagonal values of a matrix
-     */
-    public double getTrace() {
-        if (rows != columns) {
-            throw new IllegalArgumentException("Tried to find the trace of a" +
-                    " non-square matrix.");
-        }
-
-        double sum = 0;
-        for (int i = 0; i < rows; i++) {
-            sum += matrix[i][i];
-        }
-
-        return sum;
-    }
-
-    /**
      * Inverts the matrix
      * Code written by SanFoundry
      */
@@ -268,12 +250,33 @@ public class Matrix {
         matrix = a;
     }
 
+    /**
+     * Negates each element in the Matrix
+     */
     public void negate() {
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++) {
                 matrix[i][j] = -matrix[i][j];
             }
         }
+    }
+
+    /**
+     * Finds the trace of a square matrix
+     * @return the sum of the diagonal values of a matrix
+     */
+    public double getTrace() {
+        if (rows != columns) {
+            throw new IllegalArgumentException("Tried to find the trace of a" +
+                    " non-square matrix.");
+        }
+
+        double sum = 0;
+        for (int i = 0; i < rows; i++) {
+            sum += matrix[i][i];
+        }
+
+        return sum;
     }
 
     /**
