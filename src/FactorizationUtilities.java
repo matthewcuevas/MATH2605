@@ -11,8 +11,8 @@ public class FactorizationUtilities {
      * @return an array of Matrices where the first element is L,
      * and the second element is U, and the third is the error
      */
-    public static Matrix[] lu_fact(Matrix A) {
-        Matrix[] LU = new Matrix[2];
+    public static Object[] lu_fact(Matrix A) {
+        Object[] LU = new Matrix[2];
         LU[0] = getL(A);
         LU[1] = getU(A);
         return LU;
@@ -23,7 +23,7 @@ public class FactorizationUtilities {
      * @param q the Q matrix to factor/decompose
      * @return the decomposed l matrix
      */
-    public static Matrix getL(Matrix q) {
+    private static Matrix getL(Matrix q) {
         Matrix L = new Matrix(q.getRows(), q.getColumns());
         for (int i = 0; i < q.getRows(); i++) {
             for (int j = 0; j < q.getColumns(); j++) {
@@ -44,7 +44,7 @@ public class FactorizationUtilities {
      * @param q the Q matrix to factor/decompose
      * @return the decomposed u matrix
      */
-    public static Matrix getU(Matrix q) {
+    private static Matrix getU(Matrix q) {
         Matrix U = new Matrix(q.getRows(), q.getColumns());
         for (int i = 0; i < q.getRows(); i++) {
             for (int j = 0; j < q.getColumns(); j++) {
