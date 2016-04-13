@@ -7,12 +7,11 @@ import java.io.IOException;
  * Methods for solving systems of equations and matrix equalities.
  */
 public class SolvingUtilities {
-
     /**
-     * Solves a system of equations represented by a Lower Left triangular Matrix
-     * @param A the Matrix
-     * @param b the right hand side vectore
-     * @return the vector that solves the equation
+     * Solves Ax = b when A is lower left triangular
+     * @param A a Matrix
+     * @param b a Vector
+     * @return the Vector that solves the equation
      */
     public static Vector LLTriangularSolve(Matrix A, Vector b) {
         int n = (int) b.magnitude();
@@ -30,9 +29,9 @@ public class SolvingUtilities {
     }
 
     /**
-     * Solves a system of equations represented by a Upper Right triangular Matrix
-     * @param A the Matrix
-     * @param b the right hand side vector
+     * Solves Ax = b when A is Upper Right triangular
+     * @param A a Matrix
+     * @param b a Vector
      * @return the vector that solves the equation
      */
     public static Vector URTriangularSolve(Matrix A, Vector b) {
@@ -50,6 +49,12 @@ public class SolvingUtilities {
         return new Vector(solution);
     }
 
+    /**
+     * Solves Ax = b with LU Factorization
+     * @param A a square Matrix
+     * @param b a vector
+     * @return the vector that solves this equation
+     */
     public static Vector solve_LU(Matrix A, Vector b) {
         Object[] LU = FactorizationUtilities.lu_fact(A);
         Matrix L = (Matrix) LU[0];

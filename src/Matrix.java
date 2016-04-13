@@ -6,7 +6,6 @@ public class Matrix {
     private double[][] matrix;
     private int rows;
     private int columns;
-    private double[] nums;
 
     /**
      * Creates a matrix from the number of rows and columns
@@ -36,7 +35,6 @@ public class Matrix {
         }
         this.rows = rows;
         this.columns = columns;
-        this.nums = nums;
 
         int z = 0;
         matrix = new double[rows][columns];
@@ -55,14 +53,6 @@ public class Matrix {
         this.rows = matrix.length;
         this.columns = matrix[0].length;
         this.matrix = matrix;
-
-        int z = 0;
-        nums = new double[rows * columns];
-        for (int y = 0; y < rows; y++) {
-            for (int x = 0; x < columns; x++) {
-                nums[z++] = matrix[y][x];
-            }
-        }
     }
 
     /**
@@ -180,7 +170,7 @@ public class Matrix {
      * Finds the trace of a square matrix
      * @return the sum of the diagonal values of a matrix
      */
-    public double trace() {
+    public double getTrace() {
         if (rows != columns) {
             throw new IllegalArgumentException("Tried to find the trace of a" +
                     " non-square matrix.");
@@ -276,6 +266,14 @@ public class Matrix {
         }
 
         matrix = a;
+    }
+
+    public void negate() {
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = -matrix[i][j];
+            }
+        }
     }
 
     /**
