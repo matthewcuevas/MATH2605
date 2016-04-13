@@ -277,6 +277,71 @@ public class Matrix {
     }
 
     /**
+     * Tranposes this Matrix
+     *
+     * @return A ^ T
+     */
+    public Matrix transpose() {
+        double[][] t = new double[matrix[0].length][matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                t[j][i] = matrix[i][j];
+            }
+        }
+        return new Matrix(t);
+    }
+
+    /**
+     * Subtracts the given matrix from this matrix
+     *
+     * @throws IllegalArgumentException if the matrix is null or dimensions differ
+     * @param mat Matrix to subtract from this one
+     * @return this matrix - mat
+     */
+    public Matrix minus(Matrix mat) {
+        if (mat == null) {
+            throw new IllegalArgumentException("You can't subtract a null matrix");
+        }
+        if (mat.getColumns() != getColumns() || mat.getRows() != getRows()) {
+            throw new IllegalArgumentException("You can't subtract matrices with different dimensions");
+        }
+        double[][] a = mat.getArray();
+        double[][] sub = new double[mat.getRows()][mat.getColumns()];
+        for (int i = 0; i < mat.getRows(); i++) {
+            for (int j = 0; j < mat.getColumns(); j++) {
+                sub[i][j] = mat.get(i,j) - a[i][j];
+            }
+        }
+        return new Matrix(sub);
+    }
+
+    /**
+     * Gets the norm of the Matrix
+     * norm is defined as absolute value of max entry in Matrix
+     *
+     * @return norm of the Matrix
+     */
+    public double norm() {
+        double max = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (Math.abs(matrix[i][j]) > max) {
+                    max = Math.abs(matrix[i][j]);
+                }
+            }
+        }
+        return max;
+    }
+
+    /**
+     * This method gets the raw double matrix
+     * @return the internal matrix
+     */
+    public double[][] getArray() {
+        return matrix;
+    }
+
+    /**
      * Creates a copy of this Matrix
      * @return a copy of this MAtrix
      */

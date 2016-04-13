@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Methods for factorizing matrices.
  */
@@ -84,4 +86,5 @@ public class FactorizationUtilities {
         Object[] array = {L, U};
         return array;
     }
+
 }
