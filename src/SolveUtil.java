@@ -6,7 +6,7 @@ import java.io.IOException;
 /**
  * Methods for solving systems of equations and matrix equalities.
  */
-public class SolvingUtilities {
+public class SolveUtil {
     /**
      * Solves Ax = b when A is lower left triangular
      * @param A a Matrix
@@ -56,7 +56,7 @@ public class SolvingUtilities {
      * @return the vector that solves this equation
      */
     public static Vector solve_LU(Matrix A, Vector b) {
-        Object[] LU = FactorizationUtilities.lu_fact(A);
+        Object[] LU = FactorUtil.lu_fact(A);
         Matrix L = (Matrix) LU[0];
         Matrix U = (Matrix) LU[1];
 
@@ -71,7 +71,7 @@ public class SolvingUtilities {
      * @return the solution to this equation
      */
     public static Vector solve_qr_house(Matrix A, Vector b) {
-        Object[] QR = FactorizationUtilities.qr_fact_house(A);
+        Object[] QR = FactorUtil.qr_fact_house(A);
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 
@@ -88,7 +88,7 @@ public class SolvingUtilities {
      * @return the solution to this equation
      */
     public static Vector solve_factor_givens(Matrix A, Vector b) {
-        Object[] QR = FactorizationUtilities.qr_fact_givens(A);
+        Object[] QR = FactorUtil.qr_fact_givens(A);
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 

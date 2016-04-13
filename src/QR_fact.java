@@ -71,7 +71,7 @@ public class QR_fact {
         return Q;
     }
     public double findError() {
-        error = Q.multiply(Q,R).minus(matrix).norm();
+        error = Q.multiply(Q,R).minus(matrix).getNorm();
         return error;
     }
 
