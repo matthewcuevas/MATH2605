@@ -37,7 +37,8 @@ public class SolvingUtilities {
                 if (i == 0) {
                     String[] column = line.split(" ");
                     col = column.length;
-                    rows = col - 1;
+                    rows = col;
+                    // rows = col - 1; for a non symmetrical matrix;
                     retur = new Matrix(rows, col);
                 } else {
                     String[] tokens = line.split(" ");
