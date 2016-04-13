@@ -325,7 +325,9 @@ public class Matrix {
      */
     public double[][] getArray() {
         return matrix;
-=======
+    }
+    
+    /**
      * Finds the trace of a square matrix
      * @return the sum of the diagonal values of a matrix
      */
@@ -341,7 +343,6 @@ public class Matrix {
         }
 
         return sum;
->>>>>>> 36646c7a48f44fa1afc5dc26d2fe6b5a8cbde753
     }
 
     /**
