@@ -8,6 +8,7 @@ public class Matrix {
     private double[][] matrix;
     private int rows;
     private int columns;
+    private double[] nums;
 
     /**
      * Creates a matrix from the number of rows and columns
@@ -37,6 +38,8 @@ public class Matrix {
         }
         this.rows = rows;
         this.columns = columns;
+        this.nums = nums;
+
         int z = 0;
         matrix = new double[rows][columns];
         for (int y = 0; y < rows; y++) {
@@ -124,14 +127,14 @@ public class Matrix {
     }
 
     /**
-     * Returns the sum of two matrices
+     * Returns the product of two matrices
      * @param m1 a Matrix
      * @param m2 another Matrix
      * @return a matrix object that represents the product of the two matrices given
      * @throws IllegalArgumentException if matrices have incompatible dimensions
      * or are null
      */
-    public Matrix multiply(Matrix m1, Matrix m2) {
+    public static Matrix multiply(Matrix m1, Matrix m2) {
         if (m1 == null || m2 == null) {
             throw new IllegalArgumentException("Matrix might be null lol");
         }
@@ -257,6 +260,14 @@ public class Matrix {
         }
 
         matrix = a;
+    }
+
+    /**
+     * Creates a copy of this Matrix
+     * @return a copy of this MAtrix
+     */
+    public Matrix getCopy() {
+        return new Matrix(rows, columns, nums);
     }
 
     @Override
