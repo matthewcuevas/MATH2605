@@ -52,6 +52,21 @@ public class SolveUtil {
     }
 
     /**
+     * Solves Ax = b when D is a Diagonal
+     * @param A a Matrix
+     * @param b a Vector
+     * @return the solution to this equation
+     */
+    public static Vector DiagonalSolve(Matrix A, Vector b) {
+        double[] xData = new double[b.getRows()];
+        for (int i = 0; i < b.getRows(); i++) {
+            xData[i] = b.get(i, 0) / A.get(i, i);
+        }
+
+        return new Vector(xData);
+    }
+
+    /**
      * Solves Ax = b with LU Factorization
      * @param Ab an augmented Matrix
      */
@@ -104,5 +119,104 @@ public class SolveUtil {
 
         Vector y = (Vector) Matrix.multiply(QTranspose, b);
         return URTriangularSolve(R, y);
+    }
+
+    /**
+     * Uses the Jacobi Iteration method to approximate Ax = b
+     * @param Ab an augmented Matrix
+     * @param u a Vector; the starting guess
+     * @param tolerance error tolerance
+     * @param M max iterations
+     * @return the approximated solution
+     */
+    public static Object[] jacobi_iter(Matrix Ab, Vector u, float tolerance, int M) {
+        Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
+        Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
+
+        Matrix L = jacobiL(A);
+        Matrix U = jacobiU(A);
+        Matrix D = jacobiD(A);
+        Matrix LUSum = Matrix.sum(L, U);
+
+        Object[] solution = new Object[2];
+
+        Vector[] guesses = new Vector[M + 1];
+        guesses[0] = u;
+
+        for (int i = 1; i < M + 1; i++) {
+            Matrix RHS = Matrix.sum(Matrix.multiply(LUSum,
+                    guesses[i - 1]).negate(), b);
+            guesses[i] = DiagonalSolve(D, Matrix.toVector(RHS));
+            solution[0] = guesses[i];
+
+            // TODO: Implement Infinity Norm Check
+        }
+
+        return solution;
+    }
+
+    /**
+     * Uses the Jacobi Iteration method to approximate Ax = b
+     * @param Ab an augmented Matrix
+     * @param u a Vector; the starting guess
+     * @param tolerance error tolerance
+     * @param M max iterations
+     * @return the approximated solution
+     */
+    public static Object[] gs_iter(Matrix Ab, Vector u, float tolerance, int M) {
+        Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
+        Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
+
+        Matrix L = jacobiL(A);
+        Matrix U = jacobiU(A);
+        Matrix D = jacobiD(A);
+        Matrix LDSum = Matrix.sum(L, D);
+
+        Object[] solution = new Object[2];
+
+        Vector[] guesses = new Vector[M + 1];
+        guesses[0] = u;
+
+        for (int i = 1; i < M + 1; i++) {
+            Matrix RHS = Matrix.sum(Matrix.multiply(U,
+                    guesses[i - 1]).negate(), b);
+            guesses[i] = LLTriangularSolve(LDSum, Matrix.toVector(RHS));
+            solution[0] = guesses[i];
+
+            // TODO: Implement Infinity Norm Check
+        }
+
+        return solution;
+    }
+
+    public static Matrix jacobiL(Matrix A) {
+        double[][] LData = new double[A.getRows()][A.getColumns()];
+        for (int i = 1; i < A.getRows(); i++) {
+            for (int j = 0; j < i; j++) {
+                LData[i][j] = A.get(i, j);
+            }
+        }
+
+        return new Matrix(LData);
+    }
+
+    public static Matrix jacobiU(Matrix A) {
+        double[][] UData = new double[A.getRows()][A.getColumns()];
+        for (int i = 0; i < A.getRows() - 1; i++) {
+            for (int j = A.getColumns() - 1; j > i; j--) {
+                UData[i][j] = A.get(i, j);
+            }
+        }
+
+        return new Matrix(UData);
+    }
+
+    public static Matrix jacobiD(Matrix A) {
+        double[][] DData = new double[A.getRows()][A.getColumns()];
+        for (int i = 0; i < A.getRows(); i++) {
+            DData[i][i] = A.get(i, i);
+        }
+
+        return new Matrix(DData);
     }
 }

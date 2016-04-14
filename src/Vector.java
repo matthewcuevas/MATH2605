@@ -32,7 +32,7 @@ public class Vector extends Matrix {
     }
 
     /**
-     * Rotates a given vector by a given angle
+     * Rotates a given vector by a given angle clockwise
      * @param vector a 2 x 2 vector
      * @param angle an angle in radians
      * @return the vector, rotated by the given angle
