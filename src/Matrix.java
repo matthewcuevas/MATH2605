@@ -49,7 +49,7 @@ public class Matrix {
      * Instantiates a Matrix based on a 2-D array of values
      * @param matrix a 2-D array of values
      */
-    public Matrix(double[][] matrix){
+    public Matrix(double[][] matrix) {
         this.rows = matrix.length;
         this.columns = matrix[0].length;
         this.matrix = matrix;
@@ -102,6 +102,56 @@ public class Matrix {
                     + " matrix.");
         }
         return matrix[row][column];
+    }
+
+
+    /**
+     * returns the determinant of this matrix
+     *
+     * @return a double of the determinant of this matrix
+     */
+    public double determinant() {
+        if (rows != columns) {
+            throw new IllegalArgumentException("Row and Column dimensions must be equivalent");
+        }
+        if (rows < 1) {
+            throw new IllegalArgumentException("Dimensions must be at least 1x1");
+        }
+        return determinant(matrix, rows);
+    }
+
+    /**
+     * determinant helper method
+     *
+     * @param myMatrix      the double[][] representing the matrix
+     * @param dimensionSize the number of rows (or columns)
+     * @return a double of the determinant
+     */
+    private static double determinant(double myMatrix[][], int dimensionSize) {
+        double determinant = 0;
+        if (dimensionSize == 1) { // 1x1 matrix
+            determinant = myMatrix[0][0];
+        } else if (dimensionSize == 2) { // 2x2 matrix
+            determinant = myMatrix[0][0] * myMatrix[1][1] - myMatrix[0][1] * myMatrix[1][0];
+        } else { // 3x3 or greater
+            for (int miniMatrixNo = 0; miniMatrixNo < dimensionSize; miniMatrixNo++) {
+                double[][] miniMatrix = new double[dimensionSize - 1][];
+                for (int k = 0; k < (dimensionSize - 1); k++) {
+                    miniMatrix[k] = new double[dimensionSize - 1];
+                }
+                for (int row = 1; row < dimensionSize; row++) {
+                    int j2 = 0;
+                    for (int column = 0; column < dimensionSize; column++) {
+                        if (column == miniMatrixNo)
+                            continue;
+                        miniMatrix[row - 1][j2] = myMatrix[row][column];
+                        j2++;
+                    }
+                }
+                determinant = determinant + Math.pow(-1.0, miniMatrixNo) * myMatrix[0][miniMatrixNo] * determinant(miniMatrix, dimensionSize - 1);
+            }
+        }
+        return determinant;
     }
 
     /**
