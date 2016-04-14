@@ -234,7 +234,6 @@ public class SolveUtil {
 
         double guesses[] = new double[M];
         for (int i = 0; i < M; i++) {
-            System.out.println(u);
             Vector nextU = Matrix.toVector(Matrix.multiply(A, u));
             guesses[i] = Vector.dot(w, nextU) / Vector.dot(w, u);
 
