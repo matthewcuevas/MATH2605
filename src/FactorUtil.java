@@ -29,7 +29,7 @@ public class FactorUtil {
         Object[] LU = new Object[3];
         LU[0] = L;
         LU[1] = U;
-        // TODO: Find ||LU-A||
+        LU[2] = Matrix.sum(Matrix.multiply(L, U), A.negate()).getNorm();
 
         return LU;
     }

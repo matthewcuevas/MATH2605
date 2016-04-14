@@ -7,7 +7,5 @@ public class Main {
         double[] AData = {3, 0, 2, 0, 1, 3, 0, 0, 1, 1, 3, 0, 0, 0, 0, 3};
 
         Matrix A = new Matrix(4, 4, AData);
-
-        System.out.println(A.getNorm());
     }
 }

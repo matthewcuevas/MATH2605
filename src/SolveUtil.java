@@ -65,7 +65,7 @@ public class SolveUtil {
      * Solves Ax = b with LU Factorization
      * @param Ab an augmented Matrix
      */
-    public static Vector solve_LU(Matrix Ab) {
+    public static Object[] solve_LU(Matrix Ab) {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
         Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
 
@@ -74,8 +74,12 @@ public class SolveUtil {
         Matrix U = (Matrix) LU[1];
 
         Vector y = LLTriangularSolve(L, b);
+        Object[] solution = new Object[2];
+        solution[0] = URTriangularSolve(U, y);
+        solution[1] = Matrix.sum(Matrix.multiply(A,
+                (Vector) solution[0]), b.negate()).getNorm();
 
-        return URTriangularSolve(U, y);
+        return solution;
     }
 
     /**
@@ -83,7 +87,7 @@ public class SolveUtil {
      * @param Ab an augmented Matrix
      * @return the solution to this equation
      */
-    public static Vector solve_qr_house(Matrix Ab) {
+    public static Object[] solve_qr_house(Matrix Ab) {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
         Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
 
@@ -94,7 +98,12 @@ public class SolveUtil {
         Matrix QTranspose = Q.transpose();
 
         Vector y = (Vector) Matrix.multiply(QTranspose, b);
-        return URTriangularSolve(R, y);
+        Object[] solution = new Object[2];
+        solution[0] = URTriangularSolve(R, y);
+        solution[1] = Matrix.sum(Matrix.multiply(A,
+                (Vector) solution[0]), b.negate()).getNorm();
+
+        return solution;
     }
 
     /**
@@ -102,7 +111,7 @@ public class SolveUtil {
      * @param Ab an augmented Matrix
      * @return the solution to this equation
      */
-    public static Vector solve_factor_givens(Matrix Ab) {
+    public static Object[] solve_factor_givens(Matrix Ab) {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
         Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
 
@@ -113,7 +122,12 @@ public class SolveUtil {
         Matrix QTranspose = Q.transpose();
 
         Vector y = (Vector) Matrix.multiply(QTranspose, b);
-        return URTriangularSolve(R, y);
+        Object[] solution = new Object[2];
+        solution[0] = URTriangularSolve(R, y);
+        solution[1] = Matrix.sum(Matrix.multiply(A,
+                (Vector) solution[0]), b.negate()).getNorm();
+
+        return solution;
     }
 
     /**
@@ -145,9 +159,15 @@ public class SolveUtil {
             guesses[i] = DiagonalSolve(D, Matrix.toVector(RHS));
             solution[0] = guesses[i];
 
-            // TODO: Implement Infinity Norm Check
+            solution[2] = Vector.sum(Matrix.multiply(A, (Vector) solution[0]),
+                    b.negate()).getNorm();
+            if ((float) solution[2] < tolerance) {
+                solution[1] = i;
+                return solution;
+            }
         }
 
+        solution[1] = M;
         return solution;
     }
 
@@ -178,9 +198,15 @@ public class SolveUtil {
             guesses[i] = LLTriangularSolve(LDSum, Matrix.toVector(RHS));
             solution[0] = guesses[i];
 
-            // TODO: Implement Infinity Norm Check
+            solution[2] = Vector.sum(Matrix.multiply(A, (Vector) solution[0]),
+                    b.negate()).getNorm();
+            if ((float) solution[2] < tolerance) {
+                solution[1] = i;
+                return solution;
+            }
         }
 
+        solution[1] = M;
         return solution;
     }
 
