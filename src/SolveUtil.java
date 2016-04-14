@@ -239,7 +239,7 @@ public class SolveUtil {
 
             if (i > 0 && guesses[i] - guesses[i - 1] < tolerance) {
                 solution[0] = guesses[i];
-                // TODO: Find corresponding eigenvalue
+                solution[1] = u;
                 solution[2] = i;
 
                 return solution;
