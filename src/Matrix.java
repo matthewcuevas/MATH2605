@@ -173,7 +173,7 @@ public class Matrix {
         for (int i = 0; i < matrix.length; i++) {
             double sum = 0;
             for (int j = 0; j < matrix[0].length; j++) {
-                sum += matrix[i][j];
+                sum += Math.abs(matrix[i][j]);
             }
 
             if (sum > max) {

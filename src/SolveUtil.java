@@ -95,15 +95,7 @@ public class SolveUtil {
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 
-        Matrix QTranspose = Q.transpose();
-
-        Vector y = (Vector) Matrix.multiply(QTranspose, b);
-        Object[] solution = new Object[2];
-        solution[0] = URTriangularSolve(R, y);
-        solution[1] = Matrix.sum(Matrix.multiply(A,
-                (Vector) solution[0]), b.negate()).getNorm();
-
-        return solution;
+        return solve_QR(Q, R, b);
     }
 
     /**
@@ -119,9 +111,14 @@ public class SolveUtil {
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 
+        return solve_QR(Q, R, b);
+    }
+
+    public static Object[] solve_QR(Matrix Q, Matrix R, Vector b) {
+        Matrix A = Matrix.multiply(Q, R);
         Matrix QTranspose = Q.transpose();
 
-        Vector y = (Vector) Matrix.multiply(QTranspose, b);
+        Vector y = Matrix.toVector(Matrix.multiply(QTranspose, b));
         Object[] solution = new Object[2];
         solution[0] = URTriangularSolve(R, y);
         solution[1] = Matrix.sum(Matrix.multiply(A,
@@ -136,7 +133,8 @@ public class SolveUtil {
      * @param u a Vector; the starting guess
      * @param tolerance error tolerance
      * @param M max iterations
-     * @return the approximated solution
+     * @return an array of Objects where the first element is the approximate
+     * solution, the second is the number of iterations, and the third is the error
      */
     public static Object[] jacobi_iter(Matrix Ab, Vector u, float tolerance, int M) {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
@@ -147,7 +145,7 @@ public class SolveUtil {
         Matrix D = getD(A);
         Matrix LUSum = Matrix.sum(L, U);
 
-        Object[] solution = new Object[2];
+        Object[] solution = new Object[3];
 
         Vector[] guesses = new Vector[M + 1];
         guesses[0] = u;
@@ -161,7 +159,7 @@ public class SolveUtil {
 
             solution[2] = Vector.sum(Matrix.multiply(A, (Vector) solution[0]),
                     b.negate()).getNorm();
-            if ((float) solution[2] < tolerance) {
+            if ((double) solution[2] < tolerance) {
                 solution[1] = i;
                 return solution;
             }
@@ -188,19 +186,20 @@ public class SolveUtil {
         Matrix D = getD(A);
         Matrix LDSum = Matrix.sum(L, D);
 
-        Object[] solution = new Object[2];
+        Object[] solution = new Object[3];
 
         Vector[] guesses = new Vector[M + 1];
         guesses[0] = u;
 
-        for (int i = 1; i < M + 1; i++) {Matrix RHS = Matrix.sum(Matrix.multiply(U,
+        for (int i = 1; i < M + 1; i++) {
+            Matrix RHS = Matrix.sum(Matrix.multiply(U,
                     guesses[i - 1]).negate(), b);
             guesses[i] = LLTriangularSolve(LDSum, Matrix.toVector(RHS));
             solution[0] = guesses[i];
 
             solution[2] = Vector.sum(Matrix.multiply(A, (Vector) solution[0]),
                     b.negate()).getNorm();
-            if ((float) solution[2] < tolerance) {
+            if ((double) solution[2] < tolerance) {
                 solution[1] = i;
                 return solution;
             }
