@@ -80,5 +80,24 @@ public class Main {
         System.out.println("x:" + x);
         System.out.println("iterations: " + iterations);
         System.out.println("error: " + error + "\n");
+
+        // Power Method
+        double[] DData = {0, 11, -5, -2, 17, -7, -4, 26, -10};
+        double[] uNoughtData = {1, 1, 1};
+        double[] wData = {1, 0, 0};
+
+        Matrix D = new Matrix(3, 3, DData);
+        u = new Vector(uNoughtData);
+        Vector w = new Vector(wData);
+
+        Object[] PowerMethod = SolveUtil.power_method(A, u, w, (float) 0.001, 1000);
+        double lambda = (double) PowerMethod[0];
+        x = (Vector) PowerMethod[1];
+        iterations = (Integer) PowerMethod[2];
+
+        System.out.println("Power Method");
+        System.out.println("lambda: " + lambda);
+        System.out.println("x: " + x);
+        System.out.println("iterations: " + iterations);
     }
 }

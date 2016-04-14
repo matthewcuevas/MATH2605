@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="60909556-3cd8-4e72-be4e-61b568fde593" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MATH2605/Main.class" afterPath="$PROJECT_DIR$/out/production/MATH2605/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MATH2605/Matrix.class" afterPath="$PROJECT_DIR$/out/production/MATH2605/Matrix.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Matrix.java" afterPath="$PROJECT_DIR$/src/Matrix.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SolveUtil.java" afterPath="$PROJECT_DIR$/src/SolveUtil.java" />
     </list>
     <ignored path="Calc3Project.iws" />
@@ -30,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="63" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+            <state relative-caret-position="175">
+              <caret line="84" column="60" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -55,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SolveUtil.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SolveUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SolveUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="201" column="51" selection-start-line="201" selection-start-column="51" selection-end-line="201" selection-end-column="51" />
+            <state relative-caret-position="99">
+              <caret line="261" column="35" selection-start-line="261" selection-start-column="35" selection-end-line="261" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -112,9 +110,9 @@
         <option value="$PROJECT_DIR$/src/IO.java" />
         <option value="$PROJECT_DIR$/src/Vector.java" />
         <option value="$PROJECT_DIR$/src/FactorUtil.java" />
-        <option value="$PROJECT_DIR$/src/SolveUtil.java" />
         <option value="$PROJECT_DIR$/src/Matrix.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/SolveUtil.java" />
       </list>
     </option>
   </component>
@@ -642,7 +640,7 @@
       <workItem from="1460514487754" duration="6198000" />
       <workItem from="1460524306639" duration="12221000" />
       <workItem from="1460595584545" duration="20112000" />
-      <workItem from="1460657572567" duration="12386000" />
+      <workItem from="1460657572567" duration="14999000" />
     </task>
     <task id="LOCAL-00001" summary="Updated readme. The compile stuff is assuming we use JAMA, which it looks like we're not?">
       <created>1460330354808</created>
@@ -784,11 +782,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460661865927</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fix norm calculation">
+      <created>1460675146285</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1460675146285</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51320000" />
+    <option name="totallyTimeSpent" value="53933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="710" y="53" width="1189" height="1027" extended-state="4" />
@@ -853,7 +858,8 @@
     <MESSAGE value="finish power_method procedure" />
     <MESSAGE value="fixed getNorm to return the infinity norm" />
     <MESSAGE value="implement norm checking, and error in facoring and solving procedures" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement norm checking, and error in facoring and solving procedures" />
+    <MESSAGE value="fix norm calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix norm calculation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1226,18 +1232,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SolveUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="201" column="51" selection-start-line="201" selection-start-column="51" selection-end-line="201" selection-end-column="51" />
+        <state relative-caret-position="175">
+          <caret line="84" column="60" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/SolveUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="63" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+        <state relative-caret-position="99">
+          <caret line="261" column="35" selection-start-line="261" selection-start-column="35" selection-end-line="261" selection-end-column="35" />
           <folding />
         </state>
       </provider>

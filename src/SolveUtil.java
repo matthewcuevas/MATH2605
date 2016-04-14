@@ -262,6 +262,9 @@ public class SolveUtil {
             Vector nextU = Matrix.toVector(Matrix.multiply(A, u));
             guesses[i] = Vector.dot(w, nextU) / Vector.dot(w, u);
 
+            System.out.println(u);
+            System.out.println(nextU);
+
             if (i > 0 && guesses[i] - guesses[i - 1] < tolerance) {
                 solution[0] = guesses[i];
                 solution[1] = u;
