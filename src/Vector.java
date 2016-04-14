@@ -31,4 +31,48 @@ public class Vector extends Matrix {
         return Math.sqrt(ret);
     }
 
+    /**
+     * Rotates a given vector by a given angle
+     * @param vector a 2 x 2 vector
+     * @param angle an angle in radians
+     * @return the vector, rotated by the given angle
+     */
+    public static Vector rotate(Vector vector, double angle) {
+        double[] RMNums = {Math.cos(angle), Math.sin(angle),
+                -Math.sin(angle), Math.cos(angle)};
+        Matrix rotationMatrix = new Matrix(2, 2, RMNums);
+
+        return Matrix.toVector(Matrix.multiply(rotationMatrix, vector));
+    }
+
+    /**
+     * Calculates the dot product of Vectors
+     * @param u a Vector
+     * @param v a Vector
+     * @return the dot product of u and v
+     */
+    public static double dot(Vector u, Vector v) {
+        double product = 0;
+        for (int i = 0; i < u.getRows(); i++) {
+            product += u.get(i, 0) * v.get(i, 0);
+        }
+
+        return product;
+    }
+
+    /**
+     * Projects a vector onto another vector
+     * @param u a vector
+     * @param v a vector
+     * @return the projection of u onto v
+     */
+    public static Vector project(Vector u, Vector v) {
+        double[] projNums = new double[v.getRows()];
+        double scalar = dot(u, v) / (Math.pow(v.magnitude(), 2));
+        for (int i = 0; i < v.getRows(); i++) {
+            projNums[i] = v.get(i, 0) * scalar;
+        }
+
+        return new Vector(projNums);
+    }
 }

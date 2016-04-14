@@ -2,13 +2,13 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        double[] ANums = {-1, -1, 1, 0, 1, 1, 1, 1, 0};
-        double[] bNums = {-1, 2, 2};
+        double[] uData = {1, 2, 5};
+        double[] vData = {-1, 3, 4};
 
-        Matrix A = new Matrix(3, 3, ANums);
-        Vector b = new Vector(bNums);
+        Vector u = new Vector(uData);
+        Vector v = new Vector(vData);
 
-        Matrix augmented = Matrix.toAugmented(A, b);
-        System.out.println(SolveUtil.solve_LU(augmented));
+        System.out.println(Vector.dot(u, v));
+        System.out.println(Vector.project(u, v));
     }
 }
