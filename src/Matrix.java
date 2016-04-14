@@ -368,6 +368,11 @@ public class Matrix {
         return X;
     }
 
+    /**
+     * Converts an n x 1 Matrix into a vector
+     * @param A a Matrix
+     * @return a vector with the same data as A
+     */
     public static Vector toVector(Matrix A) {
         if (A.getColumns() == 1) {
             double[] data = new double[A.getRows()];
@@ -376,8 +381,54 @@ public class Matrix {
             }
             return new Vector(data);
         } else {
-            return null;
+            throw new IllegalArgumentException("Matrix must be n x 1");
         }
+    }
+
+    /**
+     * Creates an augmented matrix of A and b
+     * @param A a Matrix
+     * @param b a Vector
+     * @return a Matrix that contains A and b
+     */
+    public static Matrix toAugmented(Matrix A, Vector b) {
+        Matrix X = new Matrix(A.getRows(), A.getColumns() + 1);
+        for (int i = 0; i < A.getRows(); i++) {
+            for (int j =0; j < A.getColumns(); j++) {
+                X.set(i, j, A.get(i, j));
+            }
+        }
+
+        for (int i = 0; i < A.getRows(); i++) {
+            X.set(i, A.getColumns(), b.get(i, 0));
+        }
+
+        return X;
+    }
+
+    /**
+     * Splits an augmented matrix into A and b
+     * @param A a Matrix
+     * @return an Object array where the first element is the Matrix and the
+     * second is the vector
+     */
+    public static Object[] fromAugmented(Matrix A) {
+        double[][] ANums = new double[A.getRows()][(A.getColumns() - 1)];
+        for (int i = 0; i < A.getRows(); i++) {
+            for (int j = 0; j < A.getColumns() - 1; j++) {
+                ANums[i][j] = A.get(i, j);
+            }
+        }
+
+        double[] bNums = new double[A.getRows()];
+        for (int i = 0; i < A.getRows(); i++) {
+            bNums[i] = A.get(i, A.getColumns() - 1);
+        }
+
+        Object[] Ab = new Object[2];
+        Ab[0] = new Matrix(ANums);
+        Ab[1] = new Vector(bNums);
+        return Ab;
     }
 
     @Override

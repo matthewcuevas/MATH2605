@@ -53,10 +53,12 @@ public class SolveUtil {
 
     /**
      * Solves Ax = b with LU Factorization
-     * @param A a square Matrix
-     * @param b a vector
+     * @param Ab an augmented Matrix
      */
-    public static Vector solve_LU(Matrix A, Vector b) {
+    public static Vector solve_LU(Matrix Ab) {
+        Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
+        Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
+
         Object[] LU = FactorUtil.lu_fact(A);
         Matrix L = (Matrix) LU[0];
         Matrix U = (Matrix) LU[1];
@@ -68,11 +70,13 @@ public class SolveUtil {
 
     /**
      * Solve Ax = b using Householders QR Factorization
-     * @param A a Matrix
-     * @param b a Vector
+     * @param Ab an augmented Matrix
      * @return the solution to this equation
      */
-    public static Vector solve_qr_house(Matrix A, Vector b) {
+    public static Vector solve_qr_house(Matrix Ab) {
+        Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
+        Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
+
         Object[] QR = FactorUtil.qr_fact_house(A);
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
@@ -85,11 +89,13 @@ public class SolveUtil {
 
     /**
      * Solve Ax = b using Givens QR Factorization
-     * @param A a Matrix
-     * @param b a Vector
+     * @param Ab an augmented Matrix
      * @return the solution to this equation
      */
-    public static Vector solve_factor_givens(Matrix A, Vector b) {
+    public static Vector solve_factor_givens(Matrix Ab) {
+        Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
+        Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
+
         Object[] QR = FactorUtil.qr_fact_givens(A);
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
