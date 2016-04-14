@@ -113,24 +113,6 @@ public class Matrix {
     }
 
     /**
-     * Finds the trace of a square matrix
-     * @return the sum of the diagonal values of a matrix
-     */
-    public double getTrace() {
-        if (rows != columns) {
-            throw new IllegalArgumentException("Tried to find the trace of a" +
-                    " non-square matrix.");
-        }
-
-        double sum = 0;
-        for (int i = 0; i < rows; i++) {
-            sum += matrix[i][i];
-        }
-
-        return sum;
-    }
-
-    /**
      * Gets the norm of the Matrix
      * norm is defined as absolute value of max entry in Matrix
      *
