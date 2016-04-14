@@ -31,6 +31,15 @@ public class Vector extends Matrix {
         return Math.sqrt(ret);
     }
 
+    public static Vector normalize(Vector vector) {
+        double[] normalizedData = new double[vector.getRows()];
+        for (int i = 0; i < vector.getRows(); i++) {
+            normalizedData[i] = vector.get(i, 0) / vector.magnitude();
+        }
+
+        return new Vector(normalizedData);
+    }
+
     /**
      * Rotates a given vector by a given angle clockwise
      * @param vector a 2 x 2 vector

@@ -1,8 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 /**
  * Methods for solving systems of equations and matrix equalities.
  */
@@ -133,9 +128,9 @@ public class SolveUtil {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
         Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
 
-        Matrix L = jacobiL(A);
-        Matrix U = jacobiU(A);
-        Matrix D = jacobiD(A);
+        Matrix L = getL(A);
+        Matrix U = getU(A);
+        Matrix D = getD(A);
         Matrix LUSum = Matrix.sum(L, U);
 
         Object[] solution = new Object[2];
@@ -144,6 +139,7 @@ public class SolveUtil {
         guesses[0] = u;
 
         for (int i = 1; i < M + 1; i++) {
+
             Matrix RHS = Matrix.sum(Matrix.multiply(LUSum,
                     guesses[i - 1]).negate(), b);
             guesses[i] = DiagonalSolve(D, Matrix.toVector(RHS));
@@ -167,9 +163,9 @@ public class SolveUtil {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
         Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
 
-        Matrix L = jacobiL(A);
-        Matrix U = jacobiU(A);
-        Matrix D = jacobiD(A);
+        Matrix L = getL(A);
+        Matrix U = getU(A);
+        Matrix D = getD(A);
         Matrix LDSum = Matrix.sum(L, D);
 
         Object[] solution = new Object[2];
@@ -177,8 +173,7 @@ public class SolveUtil {
         Vector[] guesses = new Vector[M + 1];
         guesses[0] = u;
 
-        for (int i = 1; i < M + 1; i++) {
-            Matrix RHS = Matrix.sum(Matrix.multiply(U,
+        for (int i = 1; i < M + 1; i++) {Matrix RHS = Matrix.sum(Matrix.multiply(U,
                     guesses[i - 1]).negate(), b);
             guesses[i] = LLTriangularSolve(LDSum, Matrix.toVector(RHS));
             solution[0] = guesses[i];
@@ -189,7 +184,8 @@ public class SolveUtil {
         return solution;
     }
 
-    public static Matrix jacobiL(Matrix A) {
+    // Helper method that finds the L Matrix
+    public static Matrix getL(Matrix A) {
         double[][] LData = new double[A.getRows()][A.getColumns()];
         for (int i = 1; i < A.getRows(); i++) {
             for (int j = 0; j < i; j++) {
@@ -200,7 +196,8 @@ public class SolveUtil {
         return new Matrix(LData);
     }
 
-    public static Matrix jacobiU(Matrix A) {
+    // Helper method that finds the U Matrix
+    public static Matrix getU(Matrix A) {
         double[][] UData = new double[A.getRows()][A.getColumns()];
         for (int i = 0; i < A.getRows() - 1; i++) {
             for (int j = A.getColumns() - 1; j > i; j--) {
@@ -211,12 +208,48 @@ public class SolveUtil {
         return new Matrix(UData);
     }
 
-    public static Matrix jacobiD(Matrix A) {
+    // Helper method that finds the D Matrix
+    public static Matrix getD(Matrix A) {
         double[][] DData = new double[A.getRows()][A.getColumns()];
         for (int i = 0; i < A.getRows(); i++) {
             DData[i][i] = A.get(i, i);
         }
 
         return new Matrix(DData);
+    }
+
+    /**
+     * Uses the power method to approximate the largest eigenvalue and its eigenvector
+     * @param A a Matrix
+     * @param u a Vector; the original guess
+     * @param w a Vector; the auxillary Vector
+     * @param tolerance the error
+     * @param M the max number of iterations
+     * @return an array of Objects where the first element is the eigenvalue,
+     * the second is the eigenvector, the third is the number of iterations
+     */
+    public static Object[] power_method (Matrix A, Vector u, Vector w,
+                                         float tolerance, int M) {
+        Object[] solution = new Object[3];
+
+        double guesses[] = new double[M];
+        for (int i = 0; i < M; i++) {
+            System.out.println(u);
+            Vector nextU = Matrix.toVector(Matrix.multiply(A, u));
+            guesses[i] = Vector.dot(w, nextU) / Vector.dot(w, u);
+
+            if (i > 0 && guesses[i] - guesses[i - 1] < tolerance) {
+                solution[0] = guesses[i];
+                // TODO: Find corresponding eigenvalue
+                solution[2] = i;
+
+                return solution;
+            }
+
+            u = nextU;
+        }
+
+        solution[2] = M;
+        return solution;
     }
 }

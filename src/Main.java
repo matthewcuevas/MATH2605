@@ -4,15 +4,14 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        double[] AData = {2, 1, 1, 2};
-        double[] bData = {1, 0};
-        double[] uData = {1, 1};
+        double[] AData = {1, 2, 1, -4, 7, 1, -1, -2, -1};
+        double[] uData = {1, 1, 1};
+        double[] wData = {1, 0, 0};
 
-        Matrix A = new Matrix(2, 2, AData);
-        Vector b = new Vector(bData);
+        Matrix A = new Matrix(3, 3, AData);
         Vector u = new Vector(uData);
+        Vector w = new Vector(uData);
 
-        Matrix Ab = Matrix.toAugmented(A, b);
-        System.out.println(SolveUtil.jacobi_iter(Ab, u, 10, 1000)[0]);
+        System.out.println(SolveUtil.power_method(A, u, w, (float) 0.001, 2)[0]);
     }
 }
