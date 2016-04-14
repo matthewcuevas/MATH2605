@@ -99,7 +99,7 @@ public class Matrix {
         if (row < 0 || row >= rows || column < 0 || column >= columns) {
             throw new IllegalArgumentException("Tried to get value at row " + row
                     + " and column " + column + " of a " + rows + " by " +  columns
-                    + "matrix.");
+                    + " matrix.");
         }
         return matrix[row][column];
     }
@@ -366,6 +366,18 @@ public class Matrix {
         }
 
         return X;
+    }
+
+    public static Vector toVector(Matrix A) {
+        if (A.getColumns() == 1) {
+            double[] data = new double[A.getRows()];
+            for (int i = 0; i < A.getRows(); i++) {
+                data[i] = A.get(i, 0);
+            }
+            return new Vector(data);
+        } else {
+            return null;
+        }
     }
 
     @Override

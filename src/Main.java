@@ -2,24 +2,29 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        double[] ANums = {2, -1, 3, 4, 2, 1, -6, -1, 2};
-        double[] bNums = {4, 7, -5};
+        double[] ANums = {-1, -1, 1, 0, 1, 1, 1, 1, 0};
+        double[] bNums = {-1, 2, 2};
 
         Matrix A = new Matrix(3, 3, ANums);
         Vector b = new Vector(bNums);
 
-        System.out.println("A:" + A);
-        System.out.println("b:" + b);
+        System.out.println("x: " + SolveUtil.solve_LU(A, b));
 
-        // Matrix L = (Matrix) FactorUtil.lu_fact(A)[0];
-        // Matrix U = (Matrix) FactorUtil.lu_fact(A)[1];
-        // System.out.println("L:" + L);
-        // System.out.println("U:" + U);
+        double[] QNums = {Math.pow(2, -.5), 0, -Math.pow(2, -.5),
+                0, 1, 0, -Math.pow(2, -.5), 0, -Math.pow(2, -.5)};
+        double[] RNums = {-Math.pow(2, .5), -Math.pow(2, .5),
+                Math.pow(2, -.5), 0, 1, 1, 0, 0, -Math.pow(2, -.5)};
 
-        // Vector y = SolveUtil.LLTriangularSolve(L, b);
-        Vector x = SolveUtil.solve_LU(A, b);
+        Matrix Q = new Matrix(3, 3, QNums);
+        Matrix R = new Matrix(3, 3, RNums);
 
-        // System.out.println("y:" + y);
-        System.out.println("x:" + x);
+        System.out.println("Q:" + Q);
+        System.out.println("R:" + R);
+
+        Matrix QTranspose = Q.transpose();
+
+        Vector y = Matrix.toVector(Matrix.multiply(QTranspose, b));
+        System.out.println("y:" + y);
+        System.out.println("x:" + SolveUtil.URTriangularSolve(R, y));
     }
 }

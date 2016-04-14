@@ -42,7 +42,7 @@ public class SolveUtil {
         for (int i = n-1; i >= 0; i--) {
             double rhs = b.get(i, 0);
             for (int j = n-1; j > i; j--) {
-                rhs -= solution[i+1] * A.get(i,j);
+                rhs -= solution[j] * A.get(i,j);
             }
 
             solution[i] = rhs / A.get(i, i);
@@ -77,9 +77,9 @@ public class SolveUtil {
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 
-        Matrix ATranspose = A.transpose();
+        Matrix QTranspose = Q.transpose();
 
-        Vector y = (Vector) Matrix.multiply(ATranspose, b);
+        Vector y = (Vector) Matrix.multiply(QTranspose, b);
         return URTriangularSolve(R, y);
     }
 
@@ -94,9 +94,9 @@ public class SolveUtil {
         Matrix Q = (Matrix) QR[0];
         Matrix R = (Matrix) QR[1];
 
-        Matrix ATranspose = A.transpose();
+        Matrix QTranspose = Q.transpose();
 
-        Vector y = (Vector) Matrix.multiply(ATranspose, b);
+        Vector y = (Vector) Matrix.multiply(QTranspose, b);
         return URTriangularSolve(R, y);
     }
 }
