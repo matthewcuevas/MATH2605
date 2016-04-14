@@ -113,20 +113,24 @@ public class Matrix {
     }
 
     /**
-     * Gets the norm of the Matrix
-     * norm is defined as absolute value of max entry in Matrix
+     * Gets the infinity norm of the Matrix, i.e. the max of the sum of absolute
+     * values of a row in the Matrix
      *
      * @return norm of the Matrix
      */
     public double getNorm() {
         double max = 0;
         for (int i = 0; i < matrix.length; i++) {
+            double sum = 0;
             for (int j = 0; j < matrix[0].length; j++) {
-                if (Math.abs(matrix[i][j]) > max) {
-                    max = Math.abs(matrix[i][j]);
-                }
+                sum += matrix[i][j];
+            }
+
+            if (sum > max) {
+                max = sum;
             }
         }
+
         return max;
     }
 
