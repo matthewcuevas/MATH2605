@@ -52,7 +52,10 @@ public class Matrix {
     public Matrix(double[][] matrix) {
         this.rows = matrix.length;
         this.columns = matrix[0].length;
-        this.matrix = matrix;
+        this.matrix = new double[rows][columns];
+        for(int i=0; i < matrix.length; i++)
+            for(int j=0; j < matrix[i].length; j++)
+                this.matrix[i][j] = matrix[i][j];
     }
 
     /**
@@ -233,7 +236,9 @@ public class Matrix {
                 sub[i][j] = mat.get(i,j) - a[i][j];
             }
         }
-        return new Matrix(sub);
+
+        Matrix retur = new Matrix(sub);
+        return retur;
     }
 
     /**
@@ -268,6 +273,22 @@ public class Matrix {
 
 
         return retur;
+    }
+
+    /**
+     * Matrix multplication by a factor double
+     * @param m1 original matrix
+     * @param factor the multiplication factor
+     * @return the new matrix
+     */
+    public static Matrix multiply(Matrix m1, double factor) {
+        for (int i = 0; i < m1.getRows(); i++) {
+            for (int j = 0; j < m1.getColumns(); j++) {
+                m1.set(i, j, factor * m1.get(i, j));
+            }
+        }
+
+        return m1;
     }
 
     /**
@@ -465,6 +486,31 @@ public class Matrix {
         Ab[0] = new Matrix(ANums);
         Ab[1] = new Vector(bNums);
         return Ab;
+    }
+
+    /**
+     * Gets a square, n x n Identity Matrix
+     *
+     * @throws IllegalArgumentException if n < 1
+     * @param n the number of rows and columns
+     * @return an n x n Identity matrix
+     */
+    public static Matrix getIdentityMatrix(int n) {
+        if (n < 1) {
+            throw new IllegalArgumentException(
+                    "You can't have an identity matrix with less than one row/columns");
+        }
+        double[][] identity = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    identity[i][j] = 1;
+                } else {
+                    identity[i][j] = 0;
+                }
+            }
+        }
+        return new Matrix(identity);
     }
 
     @Override

@@ -84,4 +84,17 @@ public class Vector extends Matrix {
 
         return new Vector(projNums);
     }
+
+    /**
+     * Gets the norm of this Vector
+     *
+     * @return vector norm
+     */
+    public static double norm(Vector v) {
+        double sum = 0;
+        for (int i = 0; i < v.getRows(); i++) {
+            sum += Math.pow(v.get(i,0), 2);
+        }
+        return Math.pow(sum, 0.5);
+    }
 }
