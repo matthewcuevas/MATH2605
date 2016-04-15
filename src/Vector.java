@@ -13,7 +13,7 @@ public class Vector extends Matrix {
 
     /**
      * constructs a vector from the data provided
-     * @param data
+     * @param data array representing vector data
      */
     public Vector(double[] data) {
         super(data.length, 1, data);
@@ -30,6 +30,7 @@ public class Vector extends Matrix {
         }
         return Math.sqrt(ret);
     }
+
 
     public static Vector normalize(Vector vector) {
         double[] normalizedData = new double[vector.getRows()];

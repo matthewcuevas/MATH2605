@@ -5,12 +5,47 @@ import java.util.Random;
  */
 public class Problems {
 
+    public static void main(String[] args) {
+        problem_1();
+    }
+
     /**
      * Performs calculations for Problem 1: The Hilbert Matrix
      */
     public static void problem_1() {
+        Matrix[] hilberts = new Matrix[20];
+        for (int i = 2; i <= hilberts.length; i++) {
+            double[][] hilbert = new double[i][i];
+            double[] bData = new double[i];
+            for (int j = 1; j <= i; j++) { // should be <=?
+                for (int k = 1; k <= i; k++) { // should be <=?
+                    double thisHilbert = 1 / (j + k - 1);
+                    thisHilbert = 1 / thisHilbert;
+                    hilbert[j - 1][k - 1] = thisHilbert;
+                }
+                bData[i - 1] = Math.pow(0.1, i / 3);
 
+            }
+            Vector bVector = new Vector(bData); // answer b
+            hilberts[i - 1] = Matrix.toAugmented(new Matrix(hilbert), bVector);
+        }
+
+        Object[] luSolutions = new Object[20]; // to store answer and error
+        for (int i = 2; i <= luSolutions.length; i++) {
+            luSolutions[i - 1] = SolveUtil.solve_LU(hilberts[i - 1]); // take A and B and calculate x and error
+        }
+
+        Object[] givensSolutions = new Object[20];
+        for (int i = 2; i <= luSolutions.length; i++) {
+            givensSolutions[i] = SolveUtil.solve_qr_givens(hilberts[i]);
+        }
+
+        Object[] householderSolutions = new Object[20];
+        for (int i = 2; i <= luSolutions.length; i++) {
+            householderSolutions[i] = SolveUtil.solve_qr_house(hilberts[i]);
+        }
     }
+
 
     /**
      * Performs calculations for Problem 2: Convergence of Iterative Methods

@@ -9,7 +9,7 @@ public class SolveUtil {
      * @return the Vector that solves the equation
      */
     public static Vector LLTriangularSolve(Matrix A, Vector b) {
-        int n = (int) b.getRows();
+        int n = b.getRows();
 
         double[] solution = new double[n];
         for (int i = 0; i < n; i++) {
@@ -31,7 +31,7 @@ public class SolveUtil {
      * @return the vector that solves the equation
      */
     public static Vector URTriangularSolve(Matrix A, Vector b) {
-        int n = (int) b.getRows();
+        int n = b.getRows();
 
         double[] solution = new double[n];
         for (int i = n-1; i >= 0; i--) {
@@ -75,9 +75,9 @@ public class SolveUtil {
 
         Vector y = LLTriangularSolve(L, b);
         Object[] solution = new Object[2];
-        solution[0] = URTriangularSolve(U, y);
+        solution[0] = URTriangularSolve(U, y); // solution x to Ax=b
         solution[1] = Matrix.sum(Matrix.multiply(A,
-                (Vector) solution[0]), b.negate()).getNorm();
+                (Vector) solution[0]), b.negate()).getNorm(); // error?
 
         return solution;
     }
@@ -103,7 +103,7 @@ public class SolveUtil {
      * @param Ab an augmented Matrix
      * @return the solution to this equation
      */
-    public static Object[] solve_factor_givens(Matrix Ab) {
+    public static Object[] solve_qr_givens(Matrix Ab) {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
         Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
 
