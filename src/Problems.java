@@ -1,4 +1,6 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -156,6 +158,35 @@ public class Problems {
      * Performs calculations for Problem 3: Convergence of Power Method
      */
     public static void problem_3() {
-        ArrayList<Matrix> twoHundredMatrixes= SolveUtil.generate2by2();
+        int max = 300;
+        ArrayList<Matrix> twoHundredMatrixes= SolveUtil.generate2by2(max);
+        //first 200 elements are the iterations required for the 300 a's
+        //last 200 elements are the iterations required for the 300 a-1's
+        int[] iterationsArray = new int[max * 2];
+        double[] traceArray = new double[max];
+        double[] determinantArray = new double[max];
+        float tol = 5/100000;
+        int maxIter = 100;
+        double[] array = {1.0, 0.0};
+        Vector u = new Vector(array);
+        Vector w = new Vector(array);
+
+        for (int i = 0; i < max; i++) {
+            Matrix firstInput = twoHundredMatrixes.get(i);
+            Matrix firstInverse = firstInput.findInverse();
+            
+            Object[] answers = SolveUtil.power_method(firstInput, u, w, tol, maxIter);
+            iterationsArray[i] = (Integer) answers[2];
+            traceArray[i] = firstInput.getTrace();
+            determinantArray[i] = firstInput.determinant();
+
+
+            Object[] answers2 = SolveUtil.power_method(firstInverse, u, w, tol, maxIter);
+            iterationsArray[i + max] = (Integer) answers2[2];
+
+        }
+
+
+
     }
 }

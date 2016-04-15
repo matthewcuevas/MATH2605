@@ -116,11 +116,6 @@ public class Matrix {
         double a,b,c,d;
         double det = this.determinant();
 
-        if (det == 0) {
-            matrix = SolveUtil.replace().getArray();
-            det = this.determinant();
-        }
-
         a = matrix[0][0]/det;
         b = matrix[0][1]/det;
         c = matrix[1][0]/det;

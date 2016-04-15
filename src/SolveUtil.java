@@ -246,11 +246,11 @@ public class SolveUtil {
         return new Matrix(DData);
     }
 
-    public static ArrayList<Matrix> generate2by2() {
-        ArrayList<Matrix> matrices = new ArrayList<>();
+    public static ArrayList<Matrix> generate2by2(int max) {
+        ArrayList<Matrix> matrices = new ArrayList<>(max);
         Random randomGen = new Random();
 
-        for (int x = 0; x < 300; x++) {
+        for (int x = 0; x < max; x++) {
             double[][] newM = new double[2][2];
             double a,b,c,d;
 
@@ -279,7 +279,13 @@ public class SolveUtil {
             newM[1][0] = c;
             newM[1][1] = d;
 
-            matrices.add(new Matrix(newM));
+            Matrix retur = new Matrix(newM);
+            if (retur.determinant() == 0) {
+                retur = new Matrix(SolveUtil.replace().getArray());
+            }
+
+            matrices.add(retur);
+
         }
 
         return matrices;

@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Problems.problem_2();
+        Problems.problem_3();
 //        // LU Factorization
 //        double[] AData = {6, 0, 2, 24, 1, 8, -12, 1, -3};
 //        Matrix A = new Matrix(3, 3, AData);
