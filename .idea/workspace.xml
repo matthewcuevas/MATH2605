@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60909556-3cd8-4e72-be4e-61b568fde593" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/FactorUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/IO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/Matrix.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/QR_fact_givens.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/QR_fact_householders.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/SolveUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/Vector.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/1_H.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/1_Hb.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/1_b.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/2_A.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/2_Ab.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/2_b.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/3_A.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MATH2605/data/team_members" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Problems.java" afterPath="$PROJECT_DIR$/src/Problems.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/2_Ab.dat" afterPath="$PROJECT_DIR$/src/data/2_Ab.dat" />
     </list>
     <ignored path="Calc3Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -673,7 +687,7 @@
       <workItem from="1460524306639" duration="12221000" />
       <workItem from="1460595584545" duration="20112000" />
       <workItem from="1460657572567" duration="14999000" />
-      <workItem from="1460691040830" duration="8578000" />
+      <workItem from="1460691040830" duration="8662000" />
     </task>
     <task id="LOCAL-00001" summary="Updated readme. The compile stuff is assuming we use JAMA, which it looks like we're not?">
       <created>1460330354808</created>
@@ -843,15 +857,22 @@
       <option name="project" value="LOCAL" />
       <updated>1460738348215</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="finish Part II of Problem 2">
+      <created>1460746040865</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1460746040865</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62511000" />
+    <option name="totallyTimeSpent" value="62595000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="737" y="53" width="1184" height="1027" extended-state="4" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -865,7 +886,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38075313" sideWeight="0.49676225" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2179054" sideWeight="0.49453977" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2179054" sideWeight="0.49453977" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.209375" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -915,7 +936,8 @@
     <MESSAGE value="fix norm calculation" />
     <MESSAGE value="perform calculations for Problem 2" />
     <MESSAGE value="finish Part I of Problem 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish Part I of Problem 2" />
+    <MESSAGE value="finish Part II of Problem 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish Part II of Problem 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
