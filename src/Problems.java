@@ -33,9 +33,9 @@ public class Problems {
             xNought[i] = new Vector(xData);
         }
 
-        Object[][] JacobiResults = new Object[3][100];
+        Object[][] JacobiResults = new Object[100][3];
         for (int i = 0; i < 100; i++) {
-
+//            Object[i] = So
         }
     }
 
