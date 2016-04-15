@@ -107,6 +107,49 @@ public class Matrix {
         return matrix[row][column];
     }
 
+    /**
+     * Finds the inverse of a only 2x2 Matrix;
+     * @return the inverse of the matrix
+     */
+    public Matrix findInverse() {
+        double[][] inverse = new double[2][2];
+        double a,b,c,d;
+        double det = this.determinant();
+
+        if (det == 0) {
+            matrix = SolveUtil.replace().getArray();
+            det = this.determinant();
+        }
+
+        a = matrix[0][0]/det;
+        b = matrix[0][1]/det;
+        c = matrix[1][0]/det;
+        d = matrix[1][1]/det;
+
+        inverse[0][0] = d;
+        inverse[0][1] = -b;
+        inverse[1][0] = -c;
+        inverse[1][1] = a;
+
+        return new Matrix(inverse);
+    }
+
+
+    /**
+     * Gets the trace of a matrix
+     * @return trace
+     */
+    public double getTrace() {
+        double trace = 0;
+        int dim = matrix.length;
+
+        for (int x = 0; x < dim; x++) {
+            trace = trace + matrix[x][x];
+        }
+        return trace;
+    }
+
+
 
     /**
      * returns the determinant of this matrix

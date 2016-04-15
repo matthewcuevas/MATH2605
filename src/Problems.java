@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -155,6 +156,6 @@ public class Problems {
      * Performs calculations for Problem 3: Convergence of Power Method
      */
     public static void problem_3() {
-
+        ArrayList<Matrix> twoHundredMatrixes= SolveUtil.generate2by2();
     }
 }

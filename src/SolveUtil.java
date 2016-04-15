@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * Methods for solving systems of equations and matrix equalities.
  */
@@ -243,22 +246,97 @@ public class SolveUtil {
         return new Matrix(DData);
     }
 
+    public static ArrayList<Matrix> generate2by2() {
+        ArrayList<Matrix> matrices = new ArrayList<>();
+        Random randomGen = new Random();
+
+        for (int x = 0; x < 300; x++) {
+            double[][] newM = new double[2][2];
+            double a,b,c,d;
+
+            a = randomGen.nextFloat()*2;
+            if (randomGen.nextBoolean()) {
+                a = -a;
+            }
+
+            b = randomGen.nextFloat()*2;
+            if (randomGen.nextBoolean()) {
+                b = -b;
+            }
+
+            c = randomGen.nextFloat()*2;
+            if (randomGen.nextBoolean()) {
+                c = -c;
+            }
+
+            d = randomGen.nextFloat()*2;
+            if (randomGen.nextBoolean()) {
+                d = -d;
+            }
+
+            newM[0][0] = a;
+            newM[0][1] = b;
+            newM[1][0] = c;
+            newM[1][1] = d;
+
+            matrices.add(new Matrix(newM));
+        }
+
+        return matrices;
+
+    }
+
+    public static Matrix replace() {
+
+        Random randomGen = new Random();
+        double[][] newM = new double[2][2];
+        double a,b,c,d;
+
+        a = randomGen.nextFloat()*2;
+        if (randomGen.nextBoolean()) {
+            a = -a;
+        }
+
+        b = randomGen.nextFloat()*2;
+        if (randomGen.nextBoolean()) {
+            b = -b;
+        }
+
+        c = randomGen.nextFloat()*2;
+        if (randomGen.nextBoolean()) {
+            c = -c;
+        }
+
+        d = randomGen.nextFloat()*2;
+        if (randomGen.nextBoolean()) {
+            d = -d;
+        }
+
+        newM[0][0] = a;
+        newM[0][1] = b;
+        newM[1][0] = c;
+        newM[1][1] = d;
+
+        return new Matrix(newM);
+    }
+
+
     /**
      * Uses the power method to approximate the largest eigenvalue and its eigenvector
      * @param A a Matrix
      * @param u a Vector; the original guess
-     * @param w a Vector; the auxillary Vector
+     * @param w a Vector; the auxiliary Vector
      * @param tolerance the error
-     * @param M the max number of iterations
+     * @param maxIterations the max number of iterations
      * @return an array of Objects where the first element is the eigenvalue,
      * the second is the eigenvector, the third is the number of iterations
      */
     public static Object[] power_method (Matrix A, Vector u, Vector w,
-                                         float tolerance, int M) {
+                                         float tolerance, int maxIterations) {
         Object[] solution = new Object[3];
 
-        double guesses[] = new double[M];
-        for (int i = 0; i < M; i++) {
+        double guesses[] = new double[maxIterations];
+        for (int i = 0; i < maxIterations; i++) {
             Vector nextU = Matrix.toVector(Matrix.multiply(A, u));
             guesses[i] = Vector.dot(w, nextU) / Vector.dot(w, u);
 
@@ -276,7 +354,7 @@ public class SolveUtil {
             u = nextU;
         }
 
-        solution[2] = M;
+        solution[2] = maxIterations;
         return solution;
     }
 }
