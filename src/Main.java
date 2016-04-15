@@ -22,8 +22,7 @@ public class Main {
         System.out.println("Error");
         System.out.println(ans2);
 
-
-
+//       // LU Factorization*/
 //        Object[] LU = FactorUtil.lu_fact(A);
 //        Matrix L = (Matrix) LU[0];
 //        Matrix U = (Matrix) LU[1];
