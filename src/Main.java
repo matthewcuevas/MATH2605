@@ -3,24 +3,25 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        // LU Factorization
-        double[] AData = {6, 0, 2, 24, 1, 8, -12, 1, -3};
-        Matrix A = new Matrix(3, 3, AData);
-
-        double[] array = {1.0 ,2.0 ,3.9};
-        Vector b = new Vector(array);
-
-        Matrix Ab = Matrix.toAugmented(A, b);
-
-        Object[] qranswers = SolveUtil.solve_qr_house(Ab);
-        Matrix ans1 = (Matrix) qranswers[0];
-        double ans2 = (double) qranswers[1];
-
-        System.out.println("Answer 1");
-        System.out.println(ans1);
-
-        System.out.println("Error");
-        System.out.println(ans2);
+        Problems.problem_2();
+//        // LU Factorization
+//        double[] AData = {6, 0, 2, 24, 1, 8, -12, 1, -3};
+//        Matrix A = new Matrix(3, 3, AData);
+//
+//        double[] array = {1.0 ,2.0 ,3.9};
+//        Vector b = new Vector(array);
+//
+//        Matrix Ab = Matrix.toAugmented(A, b);
+//
+//        Object[] qranswers = SolveUtil.solve_qr_house(Ab);
+//        Matrix ans1 = (Matrix) qranswers[0];
+//        double ans2 = (double) qranswers[1];
+//
+//        System.out.println("Answer 1");
+//        System.out.println(ans1);
+//
+//        System.out.println("Error");
+//        System.out.println(ans2);
 
 //       // LU Factorization*/
 //        Object[] LU = FactorUtil.lu_fact(A);

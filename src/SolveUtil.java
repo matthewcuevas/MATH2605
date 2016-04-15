@@ -151,11 +151,11 @@ public class SolveUtil {
         guesses[0] = u;
 
         for (int i = 1; i < M + 1; i++) {
-
             Matrix RHS = Matrix.sum(Matrix.multiply(LUSum,
                     guesses[i - 1]).negate(), b);
             guesses[i] = DiagonalSolve(D, Matrix.toVector(RHS));
             solution[0] = guesses[i];
+            // System.out.println(guesses[i-1]);
 
             solution[2] = Vector.sum(Matrix.multiply(A, (Vector) solution[0]),
                     b.negate()).getNorm();
