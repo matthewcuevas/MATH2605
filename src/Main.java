@@ -12,14 +12,14 @@ public class Main {
 
         Matrix Ab = Matrix.toAugmented(A, b);
 
-        Object[] qranswers = SolveUtil.solve_factor_givens(Ab);
+        Object[] qranswers = SolveUtil.solve_qr_house(Ab);
         Matrix ans1 = (Matrix) qranswers[0];
         double ans2 = (double) qranswers[1];
 
         System.out.println("Answer 1");
         System.out.println(ans1);
 
-        System.out.println("Answer 2");
+        System.out.println("Error");
         System.out.println(ans2);
 
 

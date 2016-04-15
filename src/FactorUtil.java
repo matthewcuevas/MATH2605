@@ -1,6 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 /**
  * Methods for factorizing matrices.
  */
@@ -44,7 +41,9 @@ public class FactorUtil {
      */
     public static Object[] qr_fact_house(Matrix A) {
         Object[] QR = new Matrix[2];
-        // TODO: QR Factorize A
+
+        QR[0] = QR_fact_householders.getQ(A);
+        QR[1] = QR_fact_householders.getR(A);
 
         return QR;
     }
@@ -59,7 +58,7 @@ public class FactorUtil {
     public static Object[] qr_fact_givens(Matrix A) {
 
         Object[] QR = new Matrix[2];
-        QR_fact qrMaker = new QR_fact(A);
+        QR_fact_givens qrMaker = new QR_fact_givens(A);
         QR[0] = qrMaker.getQ();
         QR[1] = qrMaker.getR();
 
