@@ -6,16 +6,24 @@ import java.util.ArrayList;
 public class QR_fact {
     Matrix matrix;
     ArrayList<Matrix> Givens;
-    public Matrix Q;
-    public Matrix R;
+    private Matrix Q;
+    private Matrix R;
     public static double error;
 
     QR_fact(Matrix matrix) {
         this.matrix = matrix;
-        Givens = new ArrayList<Matrix>(10);
+        Givens = new ArrayList<>(10);
         R = findR(this.matrix);
         Q = findQ();
         this.error = findError();
+    }
+
+    public Matrix getQ() {
+        return Q;
+    }
+
+    public Matrix getR() {
+        return R;
     }
 
     public Matrix findR(Matrix matrix) {
@@ -70,6 +78,7 @@ public class QR_fact {
 
         return Q;
     }
+
     public double findError() {
         error = Q.multiply(Q,R).minus(matrix).getNorm();
         return error;

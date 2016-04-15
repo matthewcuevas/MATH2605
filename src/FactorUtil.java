@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -56,9 +57,16 @@ public class FactorUtil {
      * and the second element is R, and the third is the error
      */
     public static Object[] qr_fact_givens(Matrix A) {
+
         Object[] QR = new Matrix[2];
-        // TODO: QR Factorize A
+        QR_fact qrMaker = new QR_fact(A);
+        QR[0] = qrMaker.getQ();
+        QR[1] = qrMaker.getR();
 
         return QR;
+
     }
+
+
+
 }
