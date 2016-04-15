@@ -233,7 +233,7 @@ public class Matrix {
         double[][] sub = new double[mat.getRows()][mat.getColumns()];
         for (int i = 0; i < mat.getRows(); i++) {
             for (int j = 0; j < mat.getColumns(); j++) {
-                sub[i][j] = mat.get(i,j) - a[i][j];
+                sub[i][j] = matrix[i][j] - a[i][j];
             }
         }
 
