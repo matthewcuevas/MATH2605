@@ -211,6 +211,11 @@ public class Problems {
             writer.close();
         }
 
+        System.out.println("4 Things were written to a file called Problem 3.txt");
+        System.out.println("Iterations of A and A-1");
+        System.out.println("The trace of A");
+        System.out.println("The determinant of A");
+
 
     }
 }

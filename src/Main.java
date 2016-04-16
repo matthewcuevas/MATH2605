@@ -1,9 +1,28 @@
 import javax.xml.bind.ValidationException;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Problems.problem_3();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Hello and welcome to our Calc 3 Project");
+        System.out.println("Authors: Anush Mattapalli, Matthew Cuevas, Prerak Uphadyaya");
+        System.out.println("");
+
+        System.out.println("Please input:");
+        System.out.println("1: Problem 1 (need more descriptions)");
+        System.out.println("2: Problem 2 (need more descriptions)");
+        System.out.println("3: Problem 3 (need more descriptions)");
+        int num = in.nextInt();
+
+        switch (num) {
+            case 1: Problems.problem_1();
+                break;
+            case 2: Problems.problem_2();
+                break;
+            case 3: Problems.problem_3();
+                break;
+        }
 //        // LU Factorization
 //        double[] AData = {6, 0, 2, 24, 1, 8, -12, 1, -3};
 //        Matrix A = new Matrix(3, 3, AData);
