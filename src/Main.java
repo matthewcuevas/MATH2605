@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("Hello and welcome to our Calc 3 Project");
-        System.out.println("Authors: Anush Mattapalli, Matthew Cuevas, Prerak Uphadyaya");
+        System.out.println("Authors: Anush Mattapalli, Matthew Cuevas, Prerak Upadhyaya");
         System.out.println("");
 
         System.out.println("Please input:");

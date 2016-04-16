@@ -38,7 +38,7 @@ public class IO {
                 i++;
             }
         } catch (Exception ex) {
-            System.out.println("The code throws an exception");
+            System.out.println("The code throws an exception"); // nice
             System.out.println(ex.getMessage());
         } finally {
             if (in!=null) in.close();

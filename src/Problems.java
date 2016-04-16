@@ -19,37 +19,62 @@ public class Problems {
      * Performs calculations for Problem 1: The Hilbert Matrix
      */
     public static void problem_1() {
-        Matrix[] hilberts = new Matrix[20];
+        Matrix[] hilberts = new Matrix[19];
         for (int i = 2; i <= hilberts.length; i++) {
             double[][] hilbert = new double[i][i];
             double[] bData = new double[i];
             for (int j = 1; j <= i; j++) { // should be <=?
                 for (int k = 1; k <= i; k++) { // should be <=?
-                    double thisHilbert = 1 / (j + k - 1);
-                    thisHilbert = 1 / thisHilbert;
-                    hilbert[j - 1][k - 1] = thisHilbert;
+                    double divideBy = (double) (j + k - 1);
+                    divideBy = 1/divideBy;
+//                    System.out.println("j: " + j + "k: " + k + " is " + divideBy);
+//                    thisHilbert = (1 / thisHilbert);
+                    hilbert[j - 1][k - 1] = divideBy;
                 }
-                bData[i - 1] = Math.pow(0.1, i / 3);
+                double powerOf = (double) i/3;
+                bData[j - 1] = Math.pow(0.1, powerOf);
+//                System.out.println(j-1 + "is: " + bData[i-2]);
 
             }
+//            System.out.println(bData[0] + ", " + bData[1]); // it isn't storing bData the same as line 29
             Vector bVector = new Vector(bData); // answer b
-            hilberts[i - 1] = Matrix.toAugmented(new Matrix(hilbert), bVector);
+            hilberts[i - 2] = Matrix.toAugmented(new Matrix(hilbert), bVector);
+//            System.out.println(hilberts[i - 2].toString());
         }
 
-        Object[] luSolutions = new Object[20]; // to store answer and error
+        Object[][] luSolutions = new Object[19][2]; // to store answer and error
+
         for (int i = 2; i <= luSolutions.length; i++) {
-            luSolutions[i - 1] = SolveUtil.solve_LU(hilberts[i - 1]); // take A and B and calculate x and error
+            luSolutions[i - 2] = SolveUtil.solve_LU(hilberts[i - 2]); // take A and B and calculate x and error
+            Vector answer = (Vector) luSolutions[i - 2][0];
+            Double error = (Double) luSolutions[i - 2][1];
+//            double errorDouble = error.get(0,0);
+            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
+            System.out.println("With the error of: " + error);
         }
 
-        Object[] givensSolutions = new Object[20];
-        for (int i = 2; i <= luSolutions.length; i++) {
-            givensSolutions[i] = SolveUtil.solve_qr_givens(hilberts[i]);
+        Object[][] givensSolutions = new Object[19][2];
+
+        for (int i = 2; i <= givensSolutions.length; i++) {
+            givensSolutions[i - 1] = SolveUtil.solve_qr_givens(hilberts[i]);
+            Vector answer = (Vector) givensSolutions[i - 2][0];
+            Double error = (Double) givensSolutions[i - 2][1];
+//            double errorDouble = error.get(0,0);
+            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
+            System.out.println("With the error of: " + error);
         }
 
-        Object[] householderSolutions = new Object[20];
-        for (int i = 2; i <= luSolutions.length; i++) {
-            householderSolutions[i] = SolveUtil.solve_qr_house(hilberts[i]);
+        Object[][] householderSolutions = new Object[19][2];
+        for (int i = 2; i <= householderSolutions.length; i++) {
+            householderSolutions[i - 1] = SolveUtil.solve_qr_house(hilberts[i]);
+            Vector answer = (Vector) householderSolutions[i - 2][0];
+            Double error = (Double) householderSolutions[i - 2][1];
+//            double errorDouble = error.get(0,0);
+            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
+            System.out.println("With the error of: " + error);
         }
+
+
     }
 
 
