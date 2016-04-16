@@ -49,8 +49,8 @@ public class Problems {
             Vector answer = (Vector) luSolutions[i - 2][0];
             Double error = (Double) luSolutions[i - 2][1];
 //            double errorDouble = error.get(0,0);
-            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-            System.out.println("With the error of: " + error);
+//            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
+//            System.out.println("With the error of: " + error);
         }
 
         Object[][] givensSolutions = new Object[19][2];
@@ -60,8 +60,8 @@ public class Problems {
             Vector answer = (Vector) givensSolutions[i - 2][0];
             Double error = (Double) givensSolutions[i - 2][1];
 //            double errorDouble = error.get(0,0);
-            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-            System.out.println("With the error of: " + error);
+//            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
+//            System.out.println("With the error of: " + error);
         }
 
         Object[][] householderSolutions = new Object[19][2];
@@ -70,8 +70,8 @@ public class Problems {
             Vector answer = (Vector) householderSolutions[i - 2][0];
             Double error = (Double) householderSolutions[i - 2][1];
 //            double errorDouble = error.get(0,0);
-            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-            System.out.println("With the error of: " + error);
+//            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
+//            System.out.println("With the error of: " + error);
         }
 
 
