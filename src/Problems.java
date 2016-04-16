@@ -216,6 +216,8 @@ public class Problems {
         System.out.println("The trace of A");
         System.out.println("The determinant of A");
 
+        System.out.println("Check the graphs for these 4 values plotted on a scatter graph");
+
 
     }
 }
