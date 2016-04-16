@@ -174,7 +174,11 @@ public class Problems {
         Vector u = new Vector(array);
         Vector w = new Vector(array);
 
-        BufferedWriter writer = null;
+        BufferedWriter deter = null;
+        BufferedWriter trace = null;
+        BufferedWriter iters = null;
+        BufferedWriter itersInv = null;
+
 
 
         for (int i = 0; i < max; i++) {
@@ -194,21 +198,29 @@ public class Problems {
         }
 
         try {
-            writer = new BufferedWriter(new FileWriter("Problem 3"));
-            writer.write("   Determinant" + "\t" + "\t" + "\t" + "\t" + "\t" +
-                    "Trace" + "\t" + "\t" + "\t"  + "Iterations A"
-                    + "\t" + "Iter A-1" + "\n");
+            deter = new BufferedWriter(new FileWriter("Determinant"));
+            trace = new BufferedWriter(new FileWriter("Trace"));
+            iters = new BufferedWriter(new FileWriter("Iterations"));
+            itersInv = new BufferedWriter(new FileWriter("Iterations A-1"));
+
+            deter.write("Determinant");
+            trace.write("Trace");
+            iters.write("Iterations A");
+            itersInv.write("Iterations A-1");
+
             for (int i = 0; i < max; i++) {
-                writer.write(i + "." + " " + determinantArray[i] + "\t" + "\t");
-                writer.write("" + traceArray[i] + "\t" + "\t");
-                writer.write("" + iterationsArray[i] + "\t" + "\t");
-                writer.write("" + iterationsArray[i + max] + "\t" + "\t");
-                writer.write("\n");
+                deter.write(determinantArray[i] + "\n");
+                trace.write(traceArray[i] + "\n");
+                iters.write(iterationsArray[i] + "\n");
+                itersInv.write(iterationsArray[i + max] + "\n");
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            writer.close();
+            deter.close();
+            trace.close();
+            itersInv.close();
+            iters.close();
         }
 
         System.out.println("4 Things were written to a file called Problem 3.txt");
