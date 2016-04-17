@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60909556-3cd8-4e72-be4e-61b568fde593" name="Default" comment="Problem 1 outputs all data (relatively) nicely to command line">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Problem 1/Writing Report Question 2 Written Portion.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MATH2605/Problems.class" afterPath="$PROJECT_DIR$/out/production/MATH2605/Problems.class" />
+    <list default="true" id="60909556-3cd8-4e72-be4e-61b568fde593" name="Default" comment="Problem 1 report written">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Problem 1/Writing Report Question 1 Hilbert Matrix.pdf" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Problem 1/Writing Report Question 2 Written Portion.docx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Calc3Project.iws" />
@@ -42,8 +42,8 @@
       <file leaf-file-name="Problems.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Problems.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20447907">
-              <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.23369037">
+              <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -547,7 +547,7 @@
       <workItem from="1460657572567" duration="14999000" />
       <workItem from="1460691040830" duration="8662000" />
       <workItem from="1460848302014" duration="2036000" />
-      <workItem from="1460870311781" duration="4499000" />
+      <workItem from="1460870311781" duration="4625000" />
     </task>
     <task id="LOCAL-00001" summary="Updated readme. The compile stuff is assuming we use JAMA, which it looks like we're not?">
       <created>1460330354808</created>
@@ -753,15 +753,21 @@
       <option name="project" value="LOCAL" />
       <updated>1460908846577</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Problem 1 report written">
+      <created>1460917068727</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1460917068727</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69130000" />
+    <option name="totallyTimeSpent" value="69256000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -775,7 +781,7 @@
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38075313" sideWeight="0.49676225" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18477103" sideWeight="0.49453977" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18477103" sideWeight="0.49453977" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.209375" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -804,7 +810,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed qr_factor_x methods" />
     <MESSAGE value="fix LU Factorization" />
     <MESSAGE value="fix URTriangularSolve in SolveUtil" />
     <MESSAGE value="fix input for solve methods" />
@@ -829,7 +834,8 @@
     <MESSAGE value="Excel file for Problem 1 should be added this time." />
     <MESSAGE value="Excel file for Problem 1 should be added this time. Please" />
     <MESSAGE value="Problem 1 outputs all data (relatively) nicely to command line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Problem 1 outputs all data (relatively) nicely to command line" />
+    <MESSAGE value="Problem 1 report written" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problem 1 report written" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1277,8 +1283,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Problems.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20447907">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.23369037">
+          <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
