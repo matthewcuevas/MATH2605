@@ -1,6 +1,8 @@
 # MATH2605
 2605 Calc 3 Project
 
+## btw this is all wrong now that we are not using JAMA and it's not as easy as hitting run
+
 ## To Run
 #####On a Unix operating system
 
