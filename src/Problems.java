@@ -284,7 +284,7 @@ public class Problems {
 
         Matrix finalized1 = Matrix.invert(A.minus((Matrix.multiply(Matrix.getIdentityMatrix(3), p2))));
         Object[] finalizedanswers1 = SolveUtil.power_method(finalized1, u1, w1, tol, maxIter);
-        double eigenvalue1 = 2.000000;
+        double eigenvalue1 = (double) finalizedanswers1[0];
 
 // penis
 
