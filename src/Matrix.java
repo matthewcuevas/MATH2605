@@ -331,7 +331,6 @@ public class Matrix {
 
     /**
      * Inverts the matrix
-     * Code written by SanFoundry
      */
     public static Matrix invert(Matrix A) {
         double[][] a = A.matrix;

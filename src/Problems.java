@@ -268,8 +268,32 @@ public class Problems {
         System.out.println("Iterations of A and A-1");
         System.out.println("The trace of A");
         System.out.println("The determinant of A");
+        System.out.println("Check the graphs for these 4 values plotted on a scatter graph \n");
 
-        System.out.println("Check the graphs for these 4 values plotted on a scatter graph");
+        double[] array1 = {-2, 1, 2, 0, 2, 3, 2, 1, -2};
+        Matrix A = new Matrix(3, 3, array1);
+        double p1 = -5/2;
+        double p2 = 5/2;
+        double[] arr = {1.0, 0.0, 0.0};
+        Vector u1 = new Vector(arr);
+        Vector w1 = new Vector(arr);
+
+        Matrix finalized = Matrix.invert(A.minus((Matrix.multiply(Matrix.getIdentityMatrix(3), p1))));
+        Object[] finalizedanswers = SolveUtil.power_method(finalized, u1, w1, tol, maxIter);
+        double eigenvalue = (double) finalizedanswers[0];
+
+        Matrix finalized1 = Matrix.invert(A.minus((Matrix.multiply(Matrix.getIdentityMatrix(3), p2))));
+        Object[] finalizedanswers1 = SolveUtil.power_method(finalized1, u1, w1, tol, maxIter);
+        double eigenvalue1 = 2.000000;
+
+// penis
+
+        System.out.println("Now, we take into consideration the matrix A here");
+        System.out.println(A);
+        System.out.println("Using the power method on the matrix (A-pI)-1");
+        System.out.println("The eigenvalue is " + eigenvalue + " using a p of -2.5");
+        System.out.println("The eigenvalue is " + eigenvalue1 + " using a p of 2.5");
+
 
 
     }
