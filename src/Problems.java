@@ -23,19 +23,14 @@ public class Problems {
                 for (int k = 1; k <= i; k++) { // should be <=?
                     double divideBy = (double) (j + k - 1);
                     divideBy = 1/divideBy;
-//                    System.out.println("j: " + j + "k: " + k + " is " + divideBy);
-//                    thisHilbert = (1 / thisHilbert);
                     hilbert[j - 1][k - 1] = divideBy;
                 }
                 double powerOf = (double) i/3;
                 bData[j - 1] = Math.pow(0.1, powerOf);
-//                System.out.println(j-1 + "is: " + bData[i-2]);
 
             }
-//            System.out.println(bData[0] + ", " + bData[1]); // it isn't storing bData the same as line 29
             Vector bVector = new Vector(bData); // answer b
             hilberts[i - 2] = Matrix.toAugmented(new Matrix(hilbert), bVector);
-//            System.out.println(hilberts[i - 2].toString());
         }
 
         // Store the error tables for each iteration and solution type to be
@@ -46,24 +41,18 @@ public class Problems {
 
         Object[][] luSolutions = new Object[19][2]; // to store answer and error
 
-//        System.out.println("hilberst 17");
-//        System.out.println(hilberts[18].toString());
         for (int i = 2; i <= luSolutions.length + 1; i++) {
-            luSolutions[i-2] = new Double[2];
-
             luSolutions[i - 2] = SolveUtil.solve_LU(hilberts[i - 2]); // take A and B and calculate x and error
-            Vector answer = (Vector) luSolutions[i - 2][0];
-            double error = (double) luSolutions[i - 2][1]; //asdf
+//            Vector answer = (Vector) luSolutions[i - 2][0];
+            double error = (double) luSolutions[i - 2][1];
             luErrorTable[i-2][0] = (double) i;
             luErrorTable[i-2][1] = error;
-//            double errorDouble = error.get(0,0);
 //            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-            System.out.println(i + " With the error of: " + error);
+//            System.out.println(i + " With the error of: " + error);
         }
-//        Matrix luErrorMatrix = new Matrix(luErrorTable);
-//        double myDOuble = luErrorTable[0][1]; // asdfadsf
-//        System.out.println(luErrorTable[0][1]);
+
         String[] headers = {"iteration", "error"};
+
         try {
             IO.writeTo2ColumnCSV(headers, luErrorTable, "src/data/luError");
         } catch (Exception e) {
@@ -74,13 +63,10 @@ public class Problems {
 
         for (int i = 2; i <= givensSolutions.length; i++) {
             givensSolutions[i - 2] = SolveUtil.solve_qr_givens(hilberts[i - 2]);
-            Vector answer = (Vector) givensSolutions[i - 2][0];
-            double error = (double) givensSolutions[i - 2][1]; //asdfasdf
+//            Vector answer = (Vector) givensSolutions[i - 2][0];
+            double error = (double) givensSolutions[i - 2][1];
             givensErrorTable[i-2][0] = (double) i;
             givensErrorTable[i-2][1] = error;
-//            double errorDouble = error.get(0,0);
-//            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-//            System.out.println("With the error of: " + error);
         }
 
         try {
@@ -93,13 +79,10 @@ public class Problems {
 
         for (int i = 2; i <= householderSolutions.length; i++) {
             householderSolutions[i - 2] = SolveUtil.solve_qr_house(hilberts[i - 2]);
-            Vector answer = (Vector) householderSolutions[i - 2][0];
+//            Vector answer = (Vector) householderSolutions[i - 2][0];
             double error = (double) householderSolutions[i - 2][1];
             houseHoldersErrorTable[i-2][0] = (double) i;
             houseHoldersErrorTable[i-2][1] = error;
-//            double errorDouble = error.get(0,0);
-//            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-//            System.out.println("With the error of: " + error);
         }
 
         try {
