@@ -1,9 +1,7 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -61,7 +59,7 @@ public class Problems {
 
         Object[][] givensSolutions = new Object[19][2];
 
-        for (int i = 2; i <= givensSolutions.length; i++) {
+        for (int i = 2; i <= givensSolutions.length + 1; i++) {
             givensSolutions[i - 2] = SolveUtil.solve_qr_givens(hilberts[i - 2]);
 //            Vector answer = (Vector) givensSolutions[i - 2][0];
             double error = (double) givensSolutions[i - 2][1];
@@ -77,7 +75,7 @@ public class Problems {
 
         Object[][] householderSolutions = new Object[19][2];
 
-        for (int i = 2; i <= householderSolutions.length; i++) {
+        for (int i = 2; i <= householderSolutions.length + 1; i++) {
             householderSolutions[i - 2] = SolveUtil.solve_qr_house(hilberts[i - 2]);
 //            Vector answer = (Vector) householderSolutions[i - 2][0];
             double error = (double) householderSolutions[i - 2][1];
