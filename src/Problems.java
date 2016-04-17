@@ -42,33 +42,49 @@ public class Problems {
 //            System.out.println(hilberts[i - 2].toString());
         }
 
+        // Store the error tables for each iteration and solution type to be
+        //      outputted to Excel.
+        double[][] luErrorTable = new double[19][2];
+        double[][] givensErrorTable = new double[19][2];
+        double[][] houseHoldersErrorTable = new double[19][2];
+
         Object[][] luSolutions = new Object[19][2]; // to store answer and error
 
         for (int i = 2; i <= luSolutions.length; i++) {
             luSolutions[i - 2] = SolveUtil.solve_LU(hilberts[i - 2]); // take A and B and calculate x and error
             Vector answer = (Vector) luSolutions[i - 2][0];
-            Double error = (Double) luSolutions[i - 2][1];
+            double error = (double) luSolutions[i - 2][1]; //asdf
+            luErrorTable[i-2][0] = (double) i;
+            luErrorTable[i-2][1] = error;
 //            double errorDouble = error.get(0,0);
 //            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-//            System.out.println("With the error of: " + error);
+            System.out.println("With the error of: " + error);
         }
+//        Matrix luErrorMatrix = new Matrix(luErrorTable);
+//        double myDOuble = luErrorTable[0][1]; // asdfadsf
+//        System.out.println(luErrorTable[0][1]);
 
         Object[][] givensSolutions = new Object[19][2];
 
         for (int i = 2; i <= givensSolutions.length; i++) {
-            givensSolutions[i - 1] = SolveUtil.solve_qr_givens(hilberts[i]);
+            givensSolutions[i - 2] = SolveUtil.solve_qr_givens(hilberts[i - 2]);
             Vector answer = (Vector) givensSolutions[i - 2][0];
-            Double error = (Double) givensSolutions[i - 2][1];
+            double error = (double) givensSolutions[i - 2][1]; //asdfasdf
+            givensErrorTable[i-2][0] = (double) i;
+            givensErrorTable[i-2][1] = error;
 //            double errorDouble = error.get(0,0);
 //            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
 //            System.out.println("With the error of: " + error);
         }
 
         Object[][] householderSolutions = new Object[19][2];
+
         for (int i = 2; i <= householderSolutions.length; i++) {
-            householderSolutions[i - 1] = SolveUtil.solve_qr_house(hilberts[i]);
+            householderSolutions[i - 2] = SolveUtil.solve_qr_house(hilberts[i - 2]);
             Vector answer = (Vector) householderSolutions[i - 2][0];
-            Double error = (Double) householderSolutions[i - 2][1];
+            double error = (double) householderSolutions[i - 2][1];
+            houseHoldersErrorTable[i-2][0] = (double) i;
+            houseHoldersErrorTable[i-2][1] = error;
 //            double errorDouble = error.get(0,0);
 //            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
 //            System.out.println("With the error of: " + error);

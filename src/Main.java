@@ -23,6 +23,9 @@ public class Main {
             case 3: Problems.problem_3();
                 break;
         }
+
+//        Problems.problem_1();
+
 //        // LU Factorization
 //        double[] AData = {6, 0, 2, 24, 1, 8, -12, 1, -3};
 //        Matrix A = new Matrix(3, 3, AData);
