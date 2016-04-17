@@ -11,16 +11,12 @@ import java.util.Random;
  */
 public class Problems {
 
-    public static void main(String[] args) {
-        problem_1();
-    }
-
     /**
      * Performs calculations for Problem 1: The Hilbert Matrix
      */
     public static void problem_1() {
         Matrix[] hilberts = new Matrix[19];
-        for (int i = 2; i <= hilberts.length; i++) {
+        for (int i = 2; i <= hilberts.length + 1; i++) {
             double[][] hilbert = new double[i][i];
             double[] bData = new double[i];
             for (int j = 1; j <= i; j++) { // should be <=?
@@ -50,7 +46,11 @@ public class Problems {
 
         Object[][] luSolutions = new Object[19][2]; // to store answer and error
 
-        for (int i = 2; i <= luSolutions.length; i++) {
+//        System.out.println("hilberst 17");
+//        System.out.println(hilberts[18].toString());
+        for (int i = 2; i <= luSolutions.length + 1; i++) {
+            luSolutions[i-2] = new Double[2];
+
             luSolutions[i - 2] = SolveUtil.solve_LU(hilberts[i - 2]); // take A and B and calculate x and error
             Vector answer = (Vector) luSolutions[i - 2][0];
             double error = (double) luSolutions[i - 2][1]; //asdf
@@ -58,11 +58,17 @@ public class Problems {
             luErrorTable[i-2][1] = error;
 //            double errorDouble = error.get(0,0);
 //            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-            System.out.println("With the error of: " + error);
+            System.out.println(i + " With the error of: " + error);
         }
 //        Matrix luErrorMatrix = new Matrix(luErrorTable);
 //        double myDOuble = luErrorTable[0][1]; // asdfadsf
 //        System.out.println(luErrorTable[0][1]);
+        String[] headers = {"iteration", "error"};
+        try {
+            IO.writeTo2ColumnCSV(headers, luErrorTable, "src/data/luError");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
         Object[][] givensSolutions = new Object[19][2];
 
@@ -75,6 +81,12 @@ public class Problems {
 //            double errorDouble = error.get(0,0);
 //            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
 //            System.out.println("With the error of: " + error);
+        }
+
+        try {
+            IO.writeTo2ColumnCSV(headers, givensErrorTable, "src/data/givensError");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
         Object[][] householderSolutions = new Object[19][2];
@@ -90,6 +102,11 @@ public class Problems {
 //            System.out.println("With the error of: " + error);
         }
 
+        try {
+            IO.writeTo2ColumnCSV(headers, houseHoldersErrorTable, "src/data/householdersError");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
