@@ -38,18 +38,18 @@ public class Problems {
         double[][] houseHoldersErrorTable = new double[19][2];
 
         Object[][] luSolutions = new Object[19][2]; // to store answer and error
+        System.out.println("LU FACTORIZATION ANSWER + ERROR:\n");
+        String[] headers = {"iteration", "error"};
 
         for (int i = 2; i <= luSolutions.length + 1; i++) {
             luSolutions[i - 2] = SolveUtil.solve_LU(hilberts[i - 2]); // take A and B and calculate x and error
-//            Vector answer = (Vector) luSolutions[i - 2][0];
+            Vector answer = (Vector) luSolutions[i - 2][0];
             double error = (double) luSolutions[i - 2][1];
             luErrorTable[i-2][0] = (double) i;
             luErrorTable[i-2][1] = error;
-//            System.out.println("for dimension of " + i + ", answer is:\n" + answer);
-//            System.out.println(i + " With the error of: " + error);
+            System.out.println("for dimension/iteration of " + i + ", answer is:\n" + answer);
+            System.out.println(" With the error of: " + error + "\n");
         }
-
-        String[] headers = {"iteration", "error"};
 
         try {
             IO.writeTo2ColumnCSV(headers, luErrorTable, "src/data/luError");
@@ -58,13 +58,19 @@ public class Problems {
         }
 
         Object[][] givensSolutions = new Object[19][2];
+        System.out.println("\n=============================================");
+        System.out.println("=============================================");
+        System.out.println("=============================================");
+        System.out.println("GIVENS QR FACTORIZATION ANSWER + ERROR:\n");
 
         for (int i = 2; i <= givensSolutions.length + 1; i++) {
             givensSolutions[i - 2] = SolveUtil.solve_qr_givens(hilberts[i - 2]);
-//            Vector answer = (Vector) givensSolutions[i - 2][0];
+            Vector answer = (Vector) givensSolutions[i - 2][0];
             double error = (double) givensSolutions[i - 2][1];
             givensErrorTable[i-2][0] = (double) i;
             givensErrorTable[i-2][1] = error;
+            System.out.println("for dimension/iteration of " + i + ", answer is:\n" + answer);
+            System.out.println(" With the error of: " + error + "\n");
         }
 
         try {
@@ -74,13 +80,19 @@ public class Problems {
         }
 
         Object[][] householderSolutions = new Object[19][2];
+        System.out.println("\n=============================================");
+        System.out.println("=============================================");
+        System.out.println("=============================================");
+        System.out.println("HOUSEHOLDERS QR FACTORIZATION ANSWER + ERROR:\n");
 
         for (int i = 2; i <= householderSolutions.length + 1; i++) {
             householderSolutions[i - 2] = SolveUtil.solve_qr_house(hilberts[i - 2]);
-//            Vector answer = (Vector) householderSolutions[i - 2][0];
+            Vector answer = (Vector) householderSolutions[i - 2][0];
             double error = (double) householderSolutions[i - 2][1];
             houseHoldersErrorTable[i-2][0] = (double) i;
             houseHoldersErrorTable[i-2][1] = error;
+            System.out.println("for dimension/iteration of " + i + ", answer is:\n" + answer);
+            System.out.println(" With the error of: " + error + "\n");
         }
 
         try {
