@@ -19,68 +19,97 @@ public class Main {
                 solution =
                         FactorUtil.lu_fact(IO.readFileMatrix(in.nextLine()));
                 // TODO: Print solution
+
+                System.out.println((Matrix) solution[0]);
+                System.out.println((Matrix) solution[1]);
+                System.out.println((double) solution[2]);
                 break;
             case "qr_fact_house":
                 System.out.println("Input the path of the matrix A:");
                 solution =
                         FactorUtil.qr_fact_house(IO.readFileMatrix(in.nextLine()));
                 // TODO: Print solution
+
+                System.out.println((Matrix) solution[0]);
+                System.out.println((Matrix) solution[1]);
+                System.out.println((double) solution[2]);
                 break;
             case "qr_fact_givens":
                 System.out.println("Input the path of the matrix A:");
                 solution =
                         FactorUtil.qr_fact_givens(IO.readFileMatrix(in.nextLine()));
                 // TODO: Print solution
+
+                System.out.println((Matrix) solution[0]);
+                System.out.println((Matrix) solution[1]);
+                System.out.println((double) solution[2]);
                 break;
             case "solve_lu":
                 System.out.println("Input the path of the matrix Ab:");
-                solution =
-                        SolveUtil.solve_LU(IO.readFileMatrix(in.nextLine()));
+                solution = SolveUtil.solve_LU(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+
+                System.out.println((Matrix) solution[0]);
+                System.out.println((double) solution[1]);
                 // TODO: Print solution
                 break;
             case "solve_qr_house":
                 System.out.println("Input the path of the matrix Ab:");
                 solution =
-                        SolveUtil.solve_qr_house(IO.readFileMatrix(in.nextLine()));
+                        SolveUtil.solve_qr_house(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+
+                System.out.println((Matrix) solution[0]);
+                System.out.println((double) solution[1]);
                 // TODO: Print solution
                 break;
             case "solve_qr_givens":
                 System.out.println("Input the path of the matrix Ab:");
                 solution =
-                        SolveUtil.solve_qr_givens(IO.readFileMatrix(in.nextLine()));
+                        SolveUtil.solve_qr_givens(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+
+                System.out.println((Matrix) solution[0]);
+                System.out.println((double) solution[1]);
                 // TODO: Print solution
                 break;
             case "jacobi_iter":
                 System.out.println("Input the path of the matrix Ab:");
-                Matrix jAb = IO.readFileMatrix(in.nextLine());
+                Matrix jAb = IO.readFileNonSymmetricalMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
-                Vector ju = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                Vector ju = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
                 System.out.println("Input a tolerance:");
                 float jtolerance = in.nextFloat();
                 System.out.println("Input the number of iterations:");
                 int jiterations = in.nextInt();
 
+                System.out.println(ju);
+
                 solution = SolveUtil.jacobi_iter(jAb, ju, jtolerance, jiterations);
+
+                System.out.println((Vector) solution[0]);
+                System.out.println((Integer) solution[1]);
+                System.out.println((double) solution[2]);
                 break;
             case "gs_iter":
                 System.out.println("Input the path of the matrix Ab:");
-                Matrix gsAb = IO.readFileMatrix(in.nextLine());
+                Matrix gsAb = IO.readFileNonSymmetricalMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
-                Vector gsu = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                Vector gsu = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
                 System.out.println("Input a tolerance:");
                 float gstolerance = in.nextFloat();
                 System.out.println("Input the number of iterations:");
                 int gsiterations = in.nextInt();
 
                 solution = SolveUtil.gs_iter(gsAb, gsu, gstolerance, gsiterations);
+                System.out.println((Vector) solution[0]);
+                System.out.println((Integer) solution[1]);
+                System.out.println((double) solution[2]);
                 break;
             case "power_method":
                 System.out.println("Input the path of the matrix A:");
                 Matrix pmA = IO.readFileMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
-                Vector pmu = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                Vector pmu = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
                 System.out.println("Input the path of the auxillary vector w:");
-                Vector pmw = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                Vector pmw = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
                 System.out.println("Input a tolerance:");
                 float pmtolerance = in.nextFloat();
                 System.out.println("Input the number of iterations:");
@@ -88,6 +117,9 @@ public class Main {
 
                 solution =
                         SolveUtil.power_method(pmA, pmu, pmw, pmtolerance, pmiterations);
+                System.out.println((double) solution[0]);
+                System.out.println((Vector) solution[1]);
+                System.out.println((Integer) solution[2]);
                 break;
         }
 

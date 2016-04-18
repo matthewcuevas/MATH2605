@@ -46,7 +46,7 @@ public class IO {
         return retur;
     }
 
-    public double[][] readFileNonSymmetricalMatrix(String filename) throws FileNotFoundException, IOException {
+    public static Matrix readFileNonSymmetricalMatrix(String filename) throws FileNotFoundException, IOException {
         BufferedReader in = null;
         int rows = 0;
         int columns = 0;
@@ -80,7 +80,8 @@ public class IO {
         } finally {
             if (in!=null) in.close();
         }
-        return matrix;
+
+        return new Matrix(matrix);
     }
 
     /**
