@@ -90,7 +90,7 @@ public class IO {
      * @param filename filename. exclude .csv, no spaces/special characters
      * @throws Exception idk
      */
-    public static void writeTo2ColumnCSV(String[] headers, double[][] values, String filename) throws Exception {
+    public static void writeToNEColumnCSV(String[] headers, double[][] values, String filename) throws Exception {
 
         // append .csv to create valid csv filename
         filename = filename + ".csv";
