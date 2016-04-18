@@ -179,18 +179,6 @@ public class Problems {
         }
         double iterationRatioAvg = sum / 100;
 
-        System.out.println("I.\n");
-        System.out.println("Jacobi:");
-        System.out.println(xJacobiAvg);
-        System.out.println("error: " + errorJacobiAvg);
-
-        System.out.println("Gauss-Seidel");
-        System.out.println(xGSAvg);
-
-        System.out.println("Average ratio of iterations (Jacobi / Gauss-Seidel):");
-        System.out.println(iterationRatioAvg);
-        System.out.println("error: " + errorGSAvg + "\n");
-
         String[] headers = {"initial_error", "Jacobi_iterations", "Gauss_iterations"};
 
         double[][] plotData = new double[100][3];
@@ -201,7 +189,7 @@ public class Problems {
         }
 
         try {
-            IO.writeToNColumnCSV(headers, plotData, "p2i_plotdata");
+            IO.writeToNColumnCSV(headers, plotData, "Problem 2/p2i_plotdata");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -239,7 +227,7 @@ public class Problems {
         }
 
         try {
-            IO.writeToNColumnCSV(headers, plotData, "p2ii_plotdata");
+            IO.writeToNColumnCSV(headers, plotData, "Problem 2/p2ii_plotdata");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
