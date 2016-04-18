@@ -78,12 +78,13 @@ public class Main {
                 int jiterations = in.nextInt();
 
                 solution = SolveUtil.jacobi_iter(jAb, ju, jtolerance, jiterations);
+
                 output.println("x:" + (Vector) solution[0]);
                 output.println("iterations: " + (Integer) solution[1]);
                 output.println("error " + (double) solution[2]);
                 break;
             case "gs_iter":
-                System.out.println("Input the path of the matrix Ab:");
+                System.out.println("Input the whole path of the matrix Ab:");
                 Matrix gsAb = IO.readFileNonSymmetricalMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
                 Vector gsu = Matrix.toVector(IO.readFileVector(in.nextLine(), gsAb.getRows()));
@@ -102,7 +103,7 @@ public class Main {
                 Matrix pmA = IO.readFileMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
                 Vector pmu = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getRows()));
-                System.out.println("Input the path of the auxillary vector w:");
+                System.out.println("Input the path of the auxiliary vector w:");
                 Vector pmw = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getRows()));
                 System.out.println("Input a tolerance:");
                 float pmtolerance = in.nextFloat();
