@@ -121,4 +121,45 @@ public class IO {
         }
         outfile.close();
     }
+
+    /**
+     * writes array of header (1 x 2) & double array to a csv file
+     *
+     * @param headers  1 x 2 String array of headers
+     * @param values   values in table with two columns
+     * @param filename filename. exclude .csv, no spaces/special characters
+     * @throws Exception idk
+     */
+    public static void writeToNColumnCSV(String[] headers, double[][] values, String filename) throws Exception {
+
+        // append .csv to create valid csv filename
+        filename = filename + ".csv";
+
+        // create new file with title FILENAME.csv
+        java.io.File dataCSV = new java.io.File(filename);
+
+        // Create new writer to write to FILENAME.csv
+        java.io.PrintWriter outfile = new java.io.PrintWriter(dataCSV);
+        int n = headers.length;
+
+        if (n == 1) {
+            outfile.write(headers[0]);
+        } else if (n > 1) {
+            outfile.write(headers[0]);
+
+            for (int i = 1; i < n; i++) {
+                outfile.write(" " + headers[i]);
+            }
+        }
+
+        // write data values from values to .csv file
+        for (int i = 0; i < values.length; i++) {
+            outfile.write("\n" + values[i][0]);
+
+            for (int j = 1; j < values[0].length; j++) {
+                outfile.write(" " + values[i][j]);
+            }
+        }
+        outfile.close();
+    }
 }

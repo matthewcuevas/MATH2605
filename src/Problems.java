@@ -118,7 +118,7 @@ public class Problems {
         Vector xExact = new Vector(xExactData);
 
         Vector[] xNought = new Vector[100];
-        Random rand = new Random();
+        Random rand = new Random(10);
         for (int i = 0; i < 100; i++) {
             double[] xData = new double[3];
             xData[0] = rand.nextFloat() * 20 - 10;
@@ -126,6 +126,11 @@ public class Problems {
             xData[2] = rand.nextFloat() * 20 - 10;
 
             xNought[i] = new Vector(xData);
+        }
+
+        double[] x0Error = new double[100];
+        for (int i = 0; i < 100; i++) {
+            x0Error[i] = Matrix.sum(xNought[i], xExact.negate()).getNorm();
         }
 
         Object[][] JacobiResults = new Object[100][3];
@@ -186,6 +191,21 @@ public class Problems {
         System.out.println(iterationRatioAvg);
         System.out.println("error: " + errorGSAvg + "\n");
 
+        String[] headers = {"initial_error", "Jacobi_iterations", "Gauss_iterations"};
+
+        double[][] plotData = new double[100][3];
+        for (int i = 0; i < 100; i++) {
+            plotData[i][0] = x0Error[i];
+            plotData[i][1] = (Integer) JacobiResults[i][1];
+            plotData[i][2] = (Integer) GSResults[i][1];
+        }
+
+        try {
+            IO.writeToNColumnCSV(headers, plotData, "p2i_plotdata");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         // Part II.
         double[] A2Data = {1, 2, 2, 1};
         double[] b2Data = {3, 3};
@@ -205,6 +225,23 @@ public class Problems {
                     xNought2, (float) 0.00005, i)[2];
             errorGS[i - 2] = (double) SolveUtil.gs_iter(Ab2,
                     xNought2, (float) 0.00005, i)[2];
+        }
+
+        headers[0] = "iterations";
+        headers[1] = "Jacobi_error";
+        headers[2] = "Gauss_error";
+
+        plotData = new double[9][3];
+        for (int i = 0; i < 9; i++) {
+            plotData[i][0] = i;
+            plotData[i][1] = errorJacobi[i];
+            plotData[i][2] = errorGS[i];
+        }
+
+        try {
+            IO.writeToNColumnCSV(headers, plotData, "p2ii_plotdata");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -296,15 +333,11 @@ public class Problems {
         Object[] finalizedanswers1 = SolveUtil.power_method(finalized1, u1, w1, tol, maxIter);
         double eigenvalue1 = (double) finalizedanswers1[0];
 
-// penis
 
         System.out.println("Now, we take into consideration the matrix A here");
         System.out.println(A);
         System.out.println("Using the power method on the matrix (A-pI)-1");
         System.out.println("The eigenvalue is " + eigenvalue + " using a p of -2.5");
         System.out.println("The eigenvalue is " + eigenvalue1 + " using a p of 2.5");
-
-
-
     }
 }
