@@ -1,0 +1,21 @@
+Part I.
+
+The average error for Jacobi Iteration was 2.256E-6.
+The averate error for Gauss-Seidel Iteration was 1.011E-6.
+
+On average, Jacobi Iteration took 2.44 times as many iterations as Gauss-Seidel to converge on a vector within a tolerance of 5 decimal places.
+
+(See Part_I_Data.ods for scatterplot)
+
+With respect to the Spectral Radius of (S^-1)*T, in Jacobi Iteration, S = D and T = -L - U.
+
+In Gauss-Seidel Iteration, S = L +D and T = -U.
+
+
+Part II.
+
+(See Part_II_Data.ods for scatterplot)
+
+The Spectral Radius of this matrix is more than 1, therefore it never converges for either method.
+
+
