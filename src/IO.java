@@ -84,6 +84,44 @@ public class IO {
         return new Matrix(matrix);
     }
 
+    public static Matrix readFileVector(String filename, int length) throws FileNotFoundException, IOException {
+        BufferedReader in = null;
+        int rows = 0;
+        int columns = 0;
+        double [][] matrix = null;
+        try {
+            int lineNum = 0;
+            int row = 0, i = 0;
+            in = new BufferedReader(new FileReader(filename));
+            String line = in.readLine();
+            while(line != null) {
+                if (i == 0) {
+                    String[] column = line.split(" ");
+                    columns = 1;
+                    rows = length;
+                    matrix = new double[rows][columns];
+                } else {
+                    String [] tokens = line.split(" ");
+                    for (int j = 0; j < columns; j++) {
+                        matrix[row][j] = Double.parseDouble(tokens[j]);
+                    }
+                    row++;
+                }
+                if (i != 0) {
+                    line = in.readLine();
+                }
+                i++;
+            }
+        } catch (Exception ex) {
+            System.out.println("The code throws an exception");
+            System.out.println(ex.getMessage());
+        } finally {
+            if (in!=null) in.close();
+        }
+
+        return new Matrix(matrix);
+    }
+
     /**
      * writes array of header (1 x 2) & double array to a csv file
      * @param headers 1 x 2 String array of headers
@@ -122,6 +160,8 @@ public class IO {
         }
         outfile.close();
     }
+
+
 
     /**
      * writes array of header (1 x 2) & double array to a csv file
