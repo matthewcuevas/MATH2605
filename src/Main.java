@@ -9,18 +9,85 @@ public class Main {
         System.out.println("Authors: Anush Mattapalli, Matthew Cuevas, Prerak Upadhyaya");
         System.out.println("");
 
-        System.out.println("Please input:");
-        System.out.println("1: Problem 1 (need more descriptions)");
-        System.out.println("2: Problem 2 (need more descriptions)");
-        System.out.println("3: Problem 3 (need more descriptions)");
-        int num = in.nextInt();
+        System.out.println("Specify a Method:");
+        String method = in.nextLine();
 
-        switch (num) {
-            case 1: Problems.problem_1();
+        Object[] solution;
+        switch (method) {
+            case "lu_fact":
+                System.out.println("Input the path of the matrix A:");
+                solution =
+                        FactorUtil.lu_fact(IO.readFileMatrix(in.nextLine()));
+                // TODO: Print solution
                 break;
-            case 2: Problems.problem_2();
+            case "qr_fact_house":
+                System.out.println("Input the path of the matrix A:");
+                solution =
+                        FactorUtil.qr_fact_house(IO.readFileMatrix(in.nextLine()));
+                // TODO: Print solution
                 break;
-            case 3: Problems.problem_3();
+            case "qr_fact_givens":
+                System.out.println("Input the path of the matrix A:");
+                solution =
+                        FactorUtil.qr_fact_givens(IO.readFileMatrix(in.nextLine()));
+                // TODO: Print solution
+                break;
+            case "solve_lu":
+                System.out.println("Input the path of the matrix Ab:");
+                solution =
+                        SolveUtil.solve_LU(IO.readFileMatrix(in.nextLine()));
+                // TODO: Print solution
+                break;
+            case "solve_qr_house":
+                System.out.println("Input the path of the matrix Ab:");
+                solution =
+                        SolveUtil.solve_qr_house(IO.readFileMatrix(in.nextLine()));
+                // TODO: Print solution
+                break;
+            case "solve_qr_givens":
+                System.out.println("Input the path of the matrix Ab:");
+                solution =
+                        SolveUtil.solve_qr_givens(IO.readFileMatrix(in.nextLine()));
+                // TODO: Print solution
+                break;
+            case "jacobi_iter":
+                System.out.println("Input the path of the matrix Ab:");
+                Matrix jAb = IO.readFileMatrix(in.nextLine());
+                System.out.println("Input the path of the initial guess u:");
+                Vector ju = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                System.out.println("Input a tolerance:");
+                float jtolerance = in.nextFloat();
+                System.out.println("Input the number of iterations:");
+                int jiterations = in.nextInt();
+
+                solution = SolveUtil.jacobi_iter(jAb, ju, jtolerance, jiterations);
+                break;
+            case "gs_iter":
+                System.out.println("Input the path of the matrix Ab:");
+                Matrix gsAb = IO.readFileMatrix(in.nextLine());
+                System.out.println("Input the path of the initial guess u:");
+                Vector gsu = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                System.out.println("Input a tolerance:");
+                float gstolerance = in.nextFloat();
+                System.out.println("Input the number of iterations:");
+                int gsiterations = in.nextInt();
+
+                solution = SolveUtil.gs_iter(gsAb, gsu, gstolerance, gsiterations);
+                break;
+            case "power_method":
+                System.out.println("Input the path of the matrix A:");
+                Matrix pmA = IO.readFileMatrix(in.nextLine());
+                System.out.println("Input the path of the initial guess u:");
+                Vector pmu = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                System.out.println("Input the path of the auxillary vector w:");
+                Vector pmw = Matrix.toVector(IO.readFileMatrix(in.nextLine()));
+                System.out.println("Input a tolerance:");
+                float pmtolerance = in.nextFloat();
+                System.out.println("Input the number of iterations:");
+                int pmiterations = in.nextInt();
+
+                solution =
+                        SolveUtil.power_method(pmA, pmu, pmw, pmtolerance, pmiterations);
                 break;
         }
 

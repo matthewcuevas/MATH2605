@@ -1,7 +1,7 @@
 Part I.
 
 The average error for Jacobi Iteration was 2.256E-6.
-The averate error for Gauss-Seidel Iteration was 1.011E-6.
+The average error for Gauss-Seidel Iteration was 1.011E-6.
 
 On average, Jacobi Iteration took 2.44 times as many iterations as Gauss-Seidel to converge on a vector within a tolerance of 5 decimal places.
 
