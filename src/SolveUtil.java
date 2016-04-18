@@ -246,6 +246,12 @@ public class SolveUtil {
         return new Matrix(DData);
     }
 
+    /**
+     * generates random 2 by 2 matrices
+     *
+     * @param max
+     * @return
+     */
     public static ArrayList<Matrix> generate2by2(int max) {
         ArrayList<Matrix> matrices = new ArrayList<>(max);
         Random randomGen = new Random();

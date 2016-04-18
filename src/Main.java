@@ -71,16 +71,13 @@ public class Main {
                 System.out.println("Input the path of the matrix Ab:");
                 Matrix jAb = IO.readFileNonSymmetricalMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
-                Vector ju = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+                Vector ju = Matrix.toVector(IO.readFileVector(in.nextLine(), jAb.getRows()));
                 System.out.println("Input a tolerance:");
                 float jtolerance = in.nextFloat();
                 System.out.println("Input the number of iterations:");
                 int jiterations = in.nextInt();
 
-                System.out.println(ju);
-
                 solution = SolveUtil.jacobi_iter(jAb, ju, jtolerance, jiterations);
-
                 output.println("x:" + (Vector) solution[0]);
                 output.println("iterations: " + (Integer) solution[1]);
                 output.println("error " + (double) solution[2]);
@@ -89,7 +86,7 @@ public class Main {
                 System.out.println("Input the path of the matrix Ab:");
                 Matrix gsAb = IO.readFileNonSymmetricalMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
-                Vector gsu = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+                Vector gsu = Matrix.toVector(IO.readFileVector(in.nextLine(), gsAb.getRows()));
                 System.out.println("Input a tolerance:");
                 float gstolerance = in.nextFloat();
                 System.out.println("Input the number of iterations:");
@@ -104,9 +101,9 @@ public class Main {
                 System.out.println("Input the path of the matrix A:");
                 Matrix pmA = IO.readFileMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
-                Vector pmu = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+                Vector pmu = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getRows()));
                 System.out.println("Input the path of the auxillary vector w:");
-                Vector pmw = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+                Vector pmw = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getRows()));
                 System.out.println("Input a tolerance:");
                 float pmtolerance = in.nextFloat();
                 System.out.println("Input the number of iterations:");
