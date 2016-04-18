@@ -86,7 +86,7 @@ public class Main {
                 output.println("error " + (double) solution[2]);
                 break;
             case "gs_iter":
-                System.out.println("Input the path of the matrix Ab:");
+                System.out.println("Input the whole path of the matrix Ab:");
                 Matrix gsAb = IO.readFileNonSymmetricalMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
                 Vector gsu = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
@@ -104,9 +104,9 @@ public class Main {
                 System.out.println("Input the path of the matrix A:");
                 Matrix pmA = IO.readFileMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
-                Vector pmu = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+                Vector pmu = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getColumns()));
                 System.out.println("Input the path of the auxillary vector w:");
-                Vector pmw = Matrix.toVector(IO.readFileNonSymmetricalMatrix(in.nextLine()));
+                Vector pmw = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getColumns()));
                 System.out.println("Input a tolerance:");
                 float pmtolerance = in.nextFloat();
                 System.out.println("Input the number of iterations:");
