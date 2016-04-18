@@ -52,7 +52,7 @@ public class Problems {
         }
 
         try {
-            IO.writeTo2ColumnCSV(headers, luErrorTable, "src/data/luError");
+            IO.writeToNEColumnCSV(headers, luErrorTable, "Problem 1/luError");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -74,7 +74,7 @@ public class Problems {
         }
 
         try {
-            IO.writeTo2ColumnCSV(headers, givensErrorTable, "src/data/givensError");
+            IO.writeToNEColumnCSV(headers, givensErrorTable, "Problem 1/givensError");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -96,7 +96,7 @@ public class Problems {
         }
 
         try {
-            IO.writeTo2ColumnCSV(headers, houseHoldersErrorTable, "src/data/householdersError");
+            IO.writeToNEColumnCSV(headers, houseHoldersErrorTable, "Problem 1/householdersError");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
