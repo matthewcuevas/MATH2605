@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60909556-3cd8-4e72-be4e-61b568fde593" name="Default" comment="&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MATH2605/FactorUtil.class" afterPath="$PROJECT_DIR$/out/production/MATH2605/FactorUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MATH2605/IO.class" afterPath="$PROJECT_DIR$/out/production/MATH2605/IO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MATH2605/Main.class" afterPath="$PROJECT_DIR$/out/production/MATH2605/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MATH2605/SolveUtil.class" afterPath="$PROJECT_DIR$/out/production/MATH2605/SolveUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SolveUtil.java" afterPath="$PROJECT_DIR$/src/SolveUtil.java" />
+    <list default="true" id="60909556-3cd8-4e72-be4e-61b568fde593" name="Default" comment="works">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Calc3Project.iws" />
@@ -46,8 +40,8 @@
       <file leaf-file-name="solution.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/solution.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.1744186">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -375,7 +369,7 @@
       <workItem from="1461002581054" duration="732000" />
       <workItem from="1461003567387" duration="205000" />
       <workItem from="1461004380734" duration="5434000" />
-      <workItem from="1461010361963" duration="642000" />
+      <workItem from="1461010361963" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="Updated readme. The compile stuff is assuming we use JAMA, which it looks like we're not?">
       <created>1460330354808</created>
@@ -611,11 +605,17 @@
       <option name="project" value="LOCAL" />
       <updated>1461007534540</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="works">
+      <created>1461011020751</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1461011020751</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81295000" />
+    <option name="totallyTimeSpent" value="81420000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
@@ -662,7 +662,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implement jacobi and gauss-seidel" />
     <MESSAGE value="implement power_method" />
     <MESSAGE value="remove print statements" />
     <MESSAGE value="delete redundant methods" />
@@ -687,7 +686,8 @@
     <MESSAGE value="add Problem 2 files" />
     <MESSAGE value="make methods callable from main" />
     <MESSAGE value="make readFileNonSymmetrical output a Matrix" />
-    <option name="LAST_COMMIT_MESSAGE" value="make readFileNonSymmetrical output a Matrix" />
+    <MESSAGE value="works" />
+    <option name="LAST_COMMIT_MESSAGE" value="works" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1166,8 +1166,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/solution.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.1744186">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
