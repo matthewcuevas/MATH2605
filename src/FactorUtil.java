@@ -40,10 +40,12 @@ public class FactorUtil {
      * and the second element is R, and the third is the error
      */
     public static Object[] qr_fact_house(Matrix A) {
-        Object[] QR = new Matrix[2];
+        Object[] QR = new Object[3];
 
         QR[0] = QR_fact_householders.getQ(A);
         QR[1] = QR_fact_householders.getR(A);
+        QR[2] = Matrix.sum(Matrix.multiply((Matrix) QR[0], (Matrix) QR[1]),
+                A.negate()).getNorm();
 
         return QR;
     }
@@ -56,16 +58,15 @@ public class FactorUtil {
      * and the second element is R, and the third is the error
      */
     public static Object[] qr_fact_givens(Matrix A) {
+        Object[] QR = new Object[3];
 
-        Object[] QR = new Matrix[2];
         QR_fact_givens qrMaker = new QR_fact_givens(A);
         QR[0] = qrMaker.getQ();
         QR[1] = qrMaker.getR();
+        QR[2] = Matrix.sum(Matrix.multiply((Matrix) QR[0], (Matrix) QR[1]),
+                A.negate()).getNorm();
 
         return QR;
 
     }
-
-
-
 }

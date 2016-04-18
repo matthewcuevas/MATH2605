@@ -72,8 +72,6 @@ public class SolveUtil {
         Matrix A = (Matrix) Matrix.fromAugmented(Ab)[0];
         Vector b = (Vector) Matrix.fromAugmented(Ab)[1];
 
-        System.out.println(A);
-
         Object[] LU = FactorUtil.lu_fact(A);
         Matrix L = (Matrix) LU[0];
         Matrix U = (Matrix) LU[1];

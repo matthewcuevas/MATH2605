@@ -12,63 +12,60 @@ public class Main {
         System.out.println("Specify a Method:");
         String method = in.nextLine();
 
+        java.io.File outfile = new java.io.File("solution.txt");
+        java.io.PrintWriter output = new java.io.PrintWriter(outfile);
+
         Object[] solution;
         switch (method) {
             case "lu_fact":
                 System.out.println("Input the path of the matrix A:");
                 solution =
                         FactorUtil.lu_fact(IO.readFileMatrix(in.nextLine()));
-                // TODO: Print solution
 
-                System.out.println((Matrix) solution[0]);
-                System.out.println((Matrix) solution[1]);
-                System.out.println((double) solution[2]);
+                output.println("L:" + (Matrix) solution[0]);
+                output.println("U:" + (Matrix) solution[1]);
+                output.println("error:" + (double) solution[2]);
                 break;
             case "qr_fact_house":
                 System.out.println("Input the path of the matrix A:");
                 solution =
                         FactorUtil.qr_fact_house(IO.readFileMatrix(in.nextLine()));
-                // TODO: Print solution
 
-                System.out.println((Matrix) solution[0]);
-                System.out.println((Matrix) solution[1]);
-                System.out.println((double) solution[2]);
+                output.println("Q:" + (Matrix) solution[0]);
+                output.println("R:" + (Matrix) solution[1]);
+                output.println("error: " + (double) solution[2]);
                 break;
             case "qr_fact_givens":
                 System.out.println("Input the path of the matrix A:");
                 solution =
                         FactorUtil.qr_fact_givens(IO.readFileMatrix(in.nextLine()));
-                // TODO: Print solution
 
-                System.out.println((Matrix) solution[0]);
-                System.out.println((Matrix) solution[1]);
-                System.out.println((double) solution[2]);
+                output.println("Q:" + (Matrix) solution[0]);
+                output.println("R:" + (Matrix) solution[1]);
+                output.println("error: " + (double) solution[2]);
                 break;
             case "solve_lu":
                 System.out.println("Input the path of the matrix Ab:");
                 solution = SolveUtil.solve_LU(IO.readFileNonSymmetricalMatrix(in.nextLine()));
 
-                System.out.println((Matrix) solution[0]);
-                System.out.println((double) solution[1]);
-                // TODO: Print solution
+                output.println("x:" + (Matrix) solution[0]);
+                output.println("error: " + (double) solution[1]);
                 break;
             case "solve_qr_house":
                 System.out.println("Input the path of the matrix Ab:");
                 solution =
                         SolveUtil.solve_qr_house(IO.readFileNonSymmetricalMatrix(in.nextLine()));
 
-                System.out.println((Matrix) solution[0]);
-                System.out.println((double) solution[1]);
-                // TODO: Print solution
+                output.println("x:" + (Matrix) solution[0]);
+                output.println("error: " + (double) solution[1]);
                 break;
             case "solve_qr_givens":
                 System.out.println("Input the path of the matrix Ab:");
                 solution =
                         SolveUtil.solve_qr_givens(IO.readFileNonSymmetricalMatrix(in.nextLine()));
 
-                System.out.println((Matrix) solution[0]);
-                System.out.println((double) solution[1]);
-                // TODO: Print solution
+                output.println("x:" + (Matrix) solution[0]);
+                output.println("error:" + (double) solution[1]);
                 break;
             case "jacobi_iter":
                 System.out.println("Input the path of the matrix Ab:");
@@ -84,9 +81,9 @@ public class Main {
 
                 solution = SolveUtil.jacobi_iter(jAb, ju, jtolerance, jiterations);
 
-                System.out.println((Vector) solution[0]);
-                System.out.println((Integer) solution[1]);
-                System.out.println((double) solution[2]);
+                output.println("x:" + (Vector) solution[0]);
+                output.println("iterations: " + (Integer) solution[1]);
+                output.println("error " + (double) solution[2]);
                 break;
             case "gs_iter":
                 System.out.println("Input the path of the matrix Ab:");
@@ -99,9 +96,9 @@ public class Main {
                 int gsiterations = in.nextInt();
 
                 solution = SolveUtil.gs_iter(gsAb, gsu, gstolerance, gsiterations);
-                System.out.println((Vector) solution[0]);
-                System.out.println((Integer) solution[1]);
-                System.out.println((double) solution[2]);
+                output.println("x:" + (Vector) solution[0]);
+                output.println("iterations: " + (Integer) solution[1]);
+                output.println("error " + (double) solution[2]);
                 break;
             case "power_method":
                 System.out.println("Input the path of the matrix A:");
@@ -117,11 +114,13 @@ public class Main {
 
                 solution =
                         SolveUtil.power_method(pmA, pmu, pmw, pmtolerance, pmiterations);
-                System.out.println((double) solution[0]);
-                System.out.println((Vector) solution[1]);
-                System.out.println((Integer) solution[2]);
+                output.println("eigenvalue: " + (double) solution[0]);
+                output.println("eigenvector:" + (Vector) solution[1]);
+                output.println("iterations: " + (Integer) solution[2]);
                 break;
         }
+
+        output.close();
 
 //        Problems.problem_1();
 
