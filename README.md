@@ -1,32 +1,19 @@
-# MATH2605
-2605 Calc 3 Project
+#Matthew Cuevas, Anush Mattapalli, Prerak Upadhyaya
+#MATH 2605 Project
 
-## btw this is all wrong now that we are not using JAMA and it's not as easy as hitting run
 
-## To Run
-#####On a Unix operating system
-
-compile with
+##To Run:
+Navigate to the folder containing the .java files using a terminal and then run
 ```sh
-$ javac -classpath .:jama-1.0.3.jar JamaTest.java
-```
-
-Run with:
+$ javac *.java
 ```sh
-$ java -classpath .:jama-1.0.3.jar JamaTest
-```
 
-#####On Windows
-
-compile with
+to compile the files. Now run
 ```sh
-$ javac -classpath .;jama-1.0.3.jar JamaTest.java
-```
-
-Run with
+$ java Main.java
 ```sh
-$ java -classpath .;jama-1.0.3.jar JamaTest
-```
 
-## Libraries used
-[JAMA Library](http://math.nist.gov/javanumerics/jama/)
+to begin the program and start running individual methods.
+
+##To View Written Portion Problems:
+Navigate to the appropriate folder for each problem. That is, Problem 1 for Problem 1, Problem 2 for Problem 2, and Problem 3 for Problem 3.
