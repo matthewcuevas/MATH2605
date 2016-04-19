@@ -102,7 +102,7 @@ public class Main {
                 output.println("error " + (double) solution[2]);
                 break;
             case "power_method":
-                System.out.println("Input the path of the matrix A:");
+                System.out.println("Input the full path of the matrix A:");
                 Matrix pmA = IO.readFileMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
                 Vector pmu = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getRows()));
