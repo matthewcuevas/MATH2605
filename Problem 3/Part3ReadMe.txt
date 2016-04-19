@@ -20,7 +20,7 @@ Problem 3.xlsx contains the data from the computer generated matrices and powerm
 
 -------------------------Running The Program---------------------
 
-1. Make sure you are in the source directory of the git file 	(Math2605/src)
+1. Make sure you are in the source directory of the main file 	(Math2605/src)
 2. Compile the Main java class
 	javac Main.java
 3. Run the class file
