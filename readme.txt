@@ -3,10 +3,7 @@ MATH 2605 Project
 
 
 TO RUN:
-Navigate to the folder containing the .java files using a terminal and to compile the files, run:
-    $ javac *.java
-
-Now, to begin the program and start running individual methods, run:
+Navigate to the folder containing the .class files using a terminal and to begin the program and start running individual methods, run:
     $ java Main.java
 
 
