@@ -10,6 +10,7 @@ $ javac *.java
 ```sh
 
 to compile the files. Now run
+
 ```sh
 $ java Main.java
 ```sh
