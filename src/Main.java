@@ -9,7 +9,10 @@ public class Main {
         System.out.println("Authors: Anush Mattapalli, Matthew Cuevas, Prerak Upadhyaya");
         System.out.println("");
 
-        System.out.println("Specify a Method:");
+        System.out.println("lu_fact\t\t\tqr_fact_house\tqr_fact_givens\n" +
+                "solve_lu\t\tsolve_qr_house\tsolve_qr_givens\n" +
+                "jacobi_iter\t\tgs_iter\t\t\tpower_method " +
+                "\n\nSpecify a method from the list above:");
         String method = in.nextLine();
 
         java.io.File outfile = new java.io.File("solution.txt");
