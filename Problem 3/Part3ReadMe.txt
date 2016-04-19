@@ -25,21 +25,11 @@ Problem 3.xlsx contains the data from the computer generated matrices and powerm
 	javac Main.java
 3. Run the class file
 	java Main
-4. You will be prompted with the following 
+4. You will be prompted with the ability to test any of the methods we've written
 
-//
-Hello and welcome to our Calc 3 Project
-Authors: Anush Mattapalli, Matthew Cuevas, Prerak Upadhyaya
 
-Please input:
-1: Problem 1 
-2: Problem 2 
-3: Problem 3 
-//
 
-Since we currently want to run part 3, type in 3 and hit enter.
-
-5. Now, many things are running in the background
+5. Problem 3 is running in the background. Also, it has been run previously to get the data needed to make the scatterplots
 	a) matrices being created
 	b) inverses being calculated
 	c) calling the power method 600 times
@@ -47,6 +37,6 @@ Since we currently want to run part 3, type in 3 and hit enter.
 
 	the prompt will now show all the information you need.
 
-6) At this point, you should be done executing each part and all information asked to be printed should be shown. 
+6) At this point, you should be done executing each part and all information asked to be printed should be shown in the word document. 
 
 Please see all the files in the Part 3 folder for all the answers requested. Thanks!
