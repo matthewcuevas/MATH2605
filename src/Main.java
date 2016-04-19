@@ -10,6 +10,7 @@ public class Main {
         System.out.println("");
 
         System.out.println("Specify a Method:");
+        System.out.println("For example: lu_fact or power_method");
         String method = in.nextLine();
 
         java.io.File outfile = new java.io.File("solution.txt");
@@ -99,7 +100,7 @@ public class Main {
                 output.println("error " + (double) solution[2]);
                 break;
             case "power_method":
-                System.out.println("Input the path of the matrix A:");
+                System.out.println("Input the full path of the matrix A:");
                 Matrix pmA = IO.readFileMatrix(in.nextLine());
                 System.out.println("Input the path of the initial guess u:");
                 Vector pmu = Matrix.toVector(IO.readFileVector(in.nextLine(), pmA.getRows()));
