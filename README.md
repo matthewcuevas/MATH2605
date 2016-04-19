@@ -4,6 +4,7 @@
 
 ##To Run:
 Navigate to the folder containing the .java files using a terminal and then run
+
 ```sh
 $ javac *.java
 ```sh
