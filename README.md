@@ -7,13 +7,13 @@ Navigate to the folder containing the .java files using a terminal and then run
 
 ```sh
 $ javac *.java
-```sh
+```
 
 to compile the files. Now run
 
 ```sh
 $ java Main.java
-```sh
+```
 
 to begin the program and start running individual methods.
 
